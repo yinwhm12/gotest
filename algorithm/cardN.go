@@ -8,14 +8,16 @@ package algorithm
  */
 func ZeroSpecialCards(a []int)  {
 	var similarMap map[int]int
+	var countOrderCards int //统计 顺子数目
 	length := len(a)
-	for i := 0; i < length;{
-		j := i
-		i = FindTypeCards(a,i)
-		CountSimilarCards(a[j:i],similarMap)
-	}
-	if len(similarMap) == 1{//一种情况 对子只有一个
+	CountSimilarCards(a,similarMap)//统计 对数
+	if len(similarMap) == 1{//一种情况 对子只有一个 //说明可以胡牌
 	//	判断是否 是3n
+		for i := 0; i < length;{
+			j := i
+			i = FindTypeCards(a,i)
+		}
+
 	}else {
 	//	胡不了
 	}
@@ -28,11 +30,40 @@ func ZeroSpecialCards(a []int)  {
 func CountSimilarCards(a []int,similarMap map[int]int)  {
 	length := len(a)
 	for index := 0; index < length; index++{
-		if _, ok := similarMap[a[index]]; ok{
-			similarMap[a[index]]++
+		//if _, ok := similarMap[a[index]]; ok{
+		//	similarMap[a[index]]++
+		//}else {
+		//
+		//}
+		similarMap[a[index]]++
+		if similarMap[a[index]] {
+
 		}
 	}
 	//return 0
+}
+
+/*
+统计同类型下的 顺子(三个)数目 3n
+ */
+func CountOrderCards(a []int)(count int)  {
+	length := len(a)
+	if length < 3{
+		count = 0
+
+	}else {
+		for i := 0 ; i < length; i = i + 2{
+			if a[i + 2] - a[i] == a[i + 1]{//顺子
+				count++
+
+			}else if a[i] == a[i + 2]{//三个的
+				count++
+			}else {//都不是
+
+			}
+		}
+	}
+	return  count
 }
 
 /*
