@@ -10,9 +10,9 @@ func main()  {
 	m[103]=1
 	m[104]=3
 	m[105]=4
-	copyM := new(map[int]int)
-	copyM = &m
-	//copyM[106] = 2
+	//copyM := new(map[int]int)
+	copyM := m
+	copyM[106] = 2
 	fmt.Printf("m=%v\n", m)
 	fmt.Printf("copyM=%v\n", copyM)
 	//for i,v := range m{

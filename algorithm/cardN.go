@@ -342,37 +342,135 @@ func OneSpecialCards(similarMap map[int]int,b []int,length int)  {
 	count := TestHu1(b,similarMap)
 	c := EndSum(similarMap)
 	left := count *3 + c[2] *2 + c[3]*3
-	if c[2] == 0 && c[1] == 1{
+	if c[2] == 0 && c[1] == 1{//没有对子
 		if length - left == 1 + similarMap[1000]{
 			fmt.Println("hu 一对 单一 王牌一")
 		}else {
 			fmt.Println("no hu")
 		}
-	}else if c[2] == 1 && c[1] == 2{
-
-		if length - left == 2 + similarMap[1000]{
-			fmt.Println("hu 暗顺 王牌一")
+	}else if c[2] == 1 && c[1] == 2{//有一个对子 且 两个单的
+		//两个单 与一个王牌 且 两个单为有序的
+		if length - left == 2 + similarMap[1000] && WacthBlackOrder(b,similarMap) == similarMap[1000]{
+			fmt.Println("hu 暗顺1 王牌一")
 		}else {
+			fmt.Println("no hu")
+		}
+	}else if c[2] == 2 && c[1] == 0{//两个对子 且没有单的
+		if length - left == similarMap[1000]{
+			fmt.Println("hu 两对")
+		}else{
 			fmt.Println("no hu")
 		}
 	}else {
 		fmt.Println("no hu" )
 	}
+
 }
 
 //m =2 是 王牌数量为2 时
 func TwoSpecialCards(similarMap map[int]int,b []int,length int)  {
 	count := TestHu1(b,similarMap)
 	c := EndSum(similarMap)
+	m := similarMap[1000]
 	left := count *3 + c[2] *2 + c[3]*3
-	if c[2] == 0 && c[1] == 0{
-		if length - left == similarMap[1000]{
+	if c[2] == 0 && c[1] == 0{//缺少对子 俩个王牌当
+		if length - left == m {
 			fmt.Println("hu 缺一对 双王")
 		}else {
 			fmt.Println("no hu")
 		}
-	}else if  {
+	}else if  c[2] == 0 && c[1] == 3 && WacthBlackOrder(b,similarMap) == 1{//3个单的 但是其中两个为有序的
+		if length - left == c[1] + m{
+			fmt.Println("hu 3单 其中一暗")
+		}else {
+			fmt.Println("no hu")
+		}
+	}else if c[2] == 1 && c[1] == 4 && WacthBlackOrder(b,similarMap) == m{//两个暗子 分别 有顺序
+		if length - left == c[1] + m{
+			fmt.Println("hu 4单 其中有两队 暗顺序")
+		}else {
+			fmt.Println("no hu")
+		}
+	}else if c[2] == 2 && c[1] ==2 && WacthBlackOrder(b,similarMap) == 1{//1个暗子 两个对子
+		if length - left == c[1] + m{
+			fmt.Println("hu 两个单 1个暗子 两个对子")
+		}else{
+			fmt.Println("no hu" )
+		}
+	}else if c[2] == 3 && c[1] == 0 {
+		if length - left == m{
+			fmt.Println("hu 3个对子")
+		}else{
+			fmt.Println("no hu")
+		}
+	}else if  c[2]==1&&c[1]==1{//剩下一张单
+		if length - left == c[1]+m{
+			fmt.Println("hu 剩下一张单牌")
+		}else {
+			fmt.Println("no hu")
+		}
+	}else{
+		fmt.Println("no hu")
+	}
+}
 
+//王牌 m=3
+func ThreeSpecialCards(similarMap map[int]int,b []int,length int)  {
+	count := TestHu1(b,similarMap)
+	c := EndSum(similarMap)
+	m := similarMap[1000]
+	left := count *3 + c[2] *2 + c[3]*3
+	//if c[2] == 1 && c[1] == 0{//全齐全
+	//	if length - left == m{
+	//		fmt.Println("hu 三张王牌 可以成3个或者顺子")
+	//	}else {
+	//		fmt.Println("no hu")
+	//	}
+	//}else if c[2]
+	if c[2] == 1{//一个对子存在的情况
+		if c[1] == 0&&length - left == m{//全齐全
+			fmt.Println("hu 三张王牌 可以成3个或者顺子")
+		}else if c[1] == 6 && WacthBlackOrder(b,similarMap) ==3&& length -left == c[1]+m{
+		//	三个暗子
+			fmt.Println("hu 三个暗子 补 3个顺子")
+		}else{
+			fmt.Println("no hu")
+		}
+	}else if c[2] == 2 {//两个对子存在的情况
+		if c[1] == 4&& length - left == c[1] + m && WacthBlackOrder(b,similarMap) == 2{
+		//	存在一个暗子
+			fmt.Println("hu 两个对子 2个暗子")
+		}else if c[1] ==1 && length - left == c[1] + m{
+		//	存在单一个
+			fmt.Println("hu 两个对子 1个单")
+		} else{
+			fmt.Println("no hu")
+		}
+	}else if c[2] == 3 {
+		if c[1] == 2&& length - left == c[1] +m &&WacthBlackOrder(b,similarMap) == 1{
+		//	存在一个暗子
+			fmt.Println("hu 三个对子 且 一个暗子")
+		}else{
+			fmt.Println("no hu")
+		}
+	}else if c[2] == 4{
+		if c[1] == 0 && length -left == m{
+			fmt.Println("hu 4个对子")
+		}else{
+			fmt.Println("no hu")
+		}
+	}else if c[2] == 0{
+		if c[1] == 3 && length - left == c[1]+m && WacthBlackOrder(b,similarMap) == 1{
+		//	存在 一个暗子 一个单
+			fmt.Println("hu 一个暗子 一个单")
+		}else if c[1] == 5 && length - left == c[1] +m && WacthBlackOrder(b,similarMap) == 2 {
+		//	存在 两个暗子 一个单
+			fmt.Println("hu 两个暗子 一个单")
+		}else {
+			fmt.Println("no hu" )
+		}
+	}else{
+		fmt.Println("no hu")
 	}
 }
 
