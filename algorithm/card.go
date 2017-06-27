@@ -72,9 +72,9 @@ func IsBlackOrder(b []int) bool  {
 
 //三张牌以上 对子数 三个相同的数 顺子数 或者其他
 //map 是一个 统计 对子 顺子 暗顺的
-func DealMoreCards(b []int)(mapCards map[int]int){
-	
-}
+//func DealMoreCards(b []int)(mapCards map[int]int){
+//
+//}
 
 // 顺子 判断
 
