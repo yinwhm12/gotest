@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9120be37-5d3a-428b-a9a6-42360db74016" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Go_SDK.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gotest.iml" afterPath="$PROJECT_DIR$/.idea/gotest.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GOPATH__gotest_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GOPATH__gotest_.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/algorithm/cardN.go" afterPath="$PROJECT_DIR$/algorithm/cardN.go" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maptest.go" afterPath="$PROJECT_DIR$/maptest.go" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wangHuTest.go" afterPath="$PROJECT_DIR$/wangHuTest.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +28,7 @@
     <favorites_list name="gotest" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4532374">
+    <splitter split-orientation="horizontal" split-proportion="0.48624402">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="leafTCPTest.go" pinned="false" current-in-tab="false">
@@ -65,49 +63,44 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="maptest.go" pinned="false" current-in-tab="false">
+          <file leaf-file-name="maptest.go" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/maptest.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="783">
-                  <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+                <state relative-caret-position="108">
+                  <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
                   <folding>
-                    <element signature="e#14#26#0" expanded="true" />
-                    <marker date="1498622202133" expanded="true" signature="330:470" ph="{...}" />
-                    <marker date="1498622202133" expanded="true" signature="345:426" ph="{...}" />
+                    <marker date="1498652762233" expanded="true" signature="336:476" ph="{...}" />
+                    <marker date="1498652762233" expanded="true" signature="351:432" ph="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="operation.go" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/operation.go">
+          <file leaf-file-name="deepequal.go" pinned="false" current-in-tab="false">
+            <entry file="file://D:/go_sdk/src/reflect/deepequal.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
-                  <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-                  <folding>
-                    <element signature="e#14#26#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="roomTest.go" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/roomTest.go">
+          <file leaf-file-name="all_test.go" pinned="false" current-in-tab="false">
+            <entry file="file://D:/go_sdk/src/reflect/all_test.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="324">
-                  <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#14#26#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="243">
+                  <caret line="86" column="18" lean-forward="true" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="wangHuTest.go" pinned="false" current-in-tab="true">
+          <file leaf-file-name="wangHuTest.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/wangHuTest.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="486">
-                  <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="39" />
+                <state relative-caret-position="527">
+                  <caret line="62" column="15" lean-forward="true" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
                   <folding>
                     <element signature="e#14#51#0" expanded="true" />
                   </folding>
@@ -239,16 +232,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tools.go" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/card/tools.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="5" column="34" lean-forward="false" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="cardTs.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/cardTs.go">
               <provider selected="true" editor-type-id="text-editor">
@@ -268,8 +251,8 @@
           <file leaf-file-name="cardN.go" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/algorithm/cardN.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-139">
-                  <caret line="428" column="0" lean-forward="false" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
+                <state relative-caret-position="1813">
+                  <caret line="664" column="13" lean-forward="false" selection-start-line="664" selection-start-column="13" selection-end-line="664" selection-end-column="13" />
                   <folding>
                     <element signature="e#19#31#0" expanded="true" />
                     <element signature="n#!!block;n#ZeroSpecialCards#0" expanded="false" />
@@ -277,6 +260,9 @@
                     <element signature="n#!!block;n#CountOrderCards#0" expanded="false" />
                     <element signature="n#!!block;n#TestHu#0" expanded="false" />
                     <element signature="n#!!block;n#FindTypeCards#0" expanded="false" />
+                    <element signature="n#!!block;n#OneSpecialCards#0" expanded="false" />
+                    <element signature="n#!!block;n#TwoSpecialCards#0" expanded="false" />
+                    <element signature="n#!!block;n#ThreeSpecialCards#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -286,11 +272,11 @@
             <entry file="file://$PROJECT_DIR$/maptest.go">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="405">
-                  <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+                  <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
                   <folding>
-                    <element signature="e#14#26#0" expanded="true" />
-                    <marker date="1498622202133" expanded="true" signature="330:470" ph="{...}" />
-                    <marker date="1498622202133" expanded="true" signature="345:426" ph="{...}" />
+                    <element signature="e#14#31#0" expanded="true" />
+                    <marker date="1498652762233" expanded="true" signature="336:476" ph="{...}" />
+                    <marker date="1498652762233" expanded="true" signature="351:432" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -317,6 +303,16 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>c</find>
+      <find>cop</find>
+      <find>copy</find>
+    </findStrings>
+    <dirStrings>
+      <dir>D:\go_sdk\src\reflect</dir>
+    </dirStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -339,8 +335,8 @@
         <option value="$PROJECT_DIR$/map_test.go" />
         <option value="$PROJECT_DIR$/algorithm/card.go" />
         <option value="$PROJECT_DIR$/cardTs.go" />
-        <option value="$PROJECT_DIR$/maptest.go" />
         <option value="$PROJECT_DIR$/wangHuTest.go" />
+        <option value="$PROJECT_DIR$/maptest.go" />
         <option value="$PROJECT_DIR$/algorithm/cardN.go" />
       </list>
     </option>
@@ -5392,11 +5388,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17972103" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19366953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25669643" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2779018" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -5413,7 +5410,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17712471" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -5455,7 +5451,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="基本牌胡 似乎 弄好 王牌差一点 map暗顺 要解决" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本牌胡 似乎 弄好 王牌差一点 map暗顺 要解决" />
+    <MESSAGE value="胡牌基本 弄好 没有统计番数" />
+    <option name="LAST_COMMIT_MESSAGE" value="胡牌基本 弄好 没有统计番数" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -5464,30 +5461,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/socker/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leafTest/leafTCPTest.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding>
-            <element signature="e#14#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sortStruct.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rand.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -5500,9 +5473,9 @@
         <state relative-caret-position="702">
           <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding>
-            <element signature="e#14#26#0" expanded="true" />
-            <marker date="1498622202133" expanded="true" signature="330:470" ph="{...}" />
-            <marker date="1498622202133" expanded="true" signature="345:426" ph="{...}" />
+            <element signature="e#14#31#0" expanded="true" />
+            <marker date="1498652762233" expanded="true" signature="336:476" ph="{...}" />
+            <marker date="1498652762233" expanded="true" signature="351:432" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -5673,9 +5646,9 @@
         <state relative-caret-position="702">
           <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding>
-            <element signature="e#14#26#0" expanded="true" />
-            <marker date="1498622202133" expanded="true" signature="330:470" ph="{...}" />
-            <marker date="1498622202133" expanded="true" signature="345:426" ph="{...}" />
+            <element signature="e#14#31#0" expanded="true" />
+            <marker date="1498652762233" expanded="true" signature="336:476" ph="{...}" />
+            <marker date="1498652762233" expanded="true" signature="351:432" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -5875,32 +5848,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maptest.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-          <folding>
-            <element signature="e#14#26#0" expanded="true" />
-            <marker date="1498622202133" expanded="true" signature="330:470" ph="{...}" />
-            <marker date="1498622202133" expanded="true" signature="345:426" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wangHuTest.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="22" selection-end-line="60" selection-end-column="39" />
+        <state relative-caret-position="527">
+          <caret line="62" column="15" lean-forward="true" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
           <folding>
             <element signature="e#14#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/go_sdk/src/reflect/deepequal.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/go_sdk/src/reflect/value.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/go_sdk/src/reflect/all_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="86" column="18" lean-forward="true" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maptest.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="e#14#31#0" expanded="true" />
+            <marker date="1498652762233" expanded="true" signature="336:476" ph="{...}" />
+            <marker date="1498652762233" expanded="true" signature="351:432" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/algorithm/cardN.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-139">
-          <caret line="428" column="0" lean-forward="false" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
+        <state relative-caret-position="1813">
+          <caret line="664" column="13" lean-forward="false" selection-start-line="664" selection-start-column="13" selection-end-line="664" selection-end-column="13" />
           <folding>
             <element signature="e#19#31#0" expanded="true" />
             <element signature="n#!!block;n#ZeroSpecialCards#0" expanded="false" />
@@ -5908,6 +5905,9 @@
             <element signature="n#!!block;n#CountOrderCards#0" expanded="false" />
             <element signature="n#!!block;n#TestHu#0" expanded="false" />
             <element signature="n#!!block;n#FindTypeCards#0" expanded="false" />
+            <element signature="n#!!block;n#OneSpecialCards#0" expanded="false" />
+            <element signature="n#!!block;n#TwoSpecialCards#0" expanded="false" />
+            <element signature="n#!!block;n#ThreeSpecialCards#0" expanded="false" />
           </folding>
         </state>
       </provider>

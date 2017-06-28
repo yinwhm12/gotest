@@ -42,34 +42,62 @@ func main()  {
 	//a := []int{106,107,108,207,208,209,301,301,302,303,304,309,309,309}// 678w 789t 11d 234d 999d
 	//a := []int{103,104,105,206,207,208,301,302,303,305,306,307,401,405}// 345w 678t 123d 567d 东中(王)
 	//a := []int{101,101,202,203,204,302,302,302,309,309,309,401,401,405}// 11w 234t 222d 999d 东东 中(王)
-	a := []int{109,109,109,204,204,301,301,301,307,307,307,309,309,309}// 11w 234t 222d 999d 东东 中(王)
+	a := []int{109,109,109,204,204,301,301,301,307,307,307,309,309,309}// 999w 44t 111d 777d 999d
 	m := make(map[int]int)
 	w := 405 //王牌
 	//algorithm.CountSimilarCards(a,m)
 	//fmt.Println()
 	//fmt.Printf("m = %v\n",m)
 	b := algorithm.CountCards(a,m,w)
+	o := algorithm.EndOriginalCountCards(m)//统计原始的每种牌的数量
 	fmt.Println("b=",b)
 	fmt.Println("f-m=",m)
 	length := len(a)
+	count := algorithm.TestHu1(a,m)
+	c := algorithm.EndSum(m)//统计变化后的每种牌 的数量
 	switch m[1000] {
 		case 1:
-			algorithm.OneSpecialCards(m,b,length)
+			algorithm.OneSpecialCards(m,b,c,length,count)
 		case 2:
-			algorithm.TwoSpecialCards(m,b,length)
+			algorithm.TwoSpecialCards(m,b,c,length,count)
 		case 3:
-			algorithm.ThreeSpecialCards(m,b,length)
+			algorithm.ThreeSpecialCards(m,b,c,length,count)
+			//同时进行看是否能有两种胡牌
+			algorithm.HuBySevenThreeW(length,o)
 	default:
-		count := algorithm.TestHu1(a,m)
-		c := algorithm.EndSum(m)
 		if c[1] != 0{
 			fmt.Println("no hu")
 		}else {
-			left := count *3 + c[2] *2 + c[3] *3
-			if length - left == 0{
-				fmt.Println("hu l")
-			}else {
-				fmt.Println("no hu")
+			if count == 0{//没有顺子
+				if c[2] == 0 && c[3] == 0&& c[1] == length{//没有对子 三个的
+					blackCount := algorithm.WacthBlackOrder(a,m)
+					if blackCount == 0{//没有暗顺子
+						sevenCount := 0
+						for {//统计 东南西北中发白
+							if m[401+sevenCount] == 1{
+								sevenCount++
+							}else {
+								break
+							}
+						}
+						if sevenCount == 7{
+							fmt.Println("七风到位⼗三烂")
+						}else{
+							fmt.Println("普通的十三烂")
+						}
+					}else {
+						fmt.Println("no hu")
+					}
+				}else {
+					fmt.Println("no hu")
+				}
+			}else {//有顺子
+				left := count *3 + c[2] *2 + c[3] *3
+				if length - left == 0 && c[2] == 1{
+					fmt.Println("hu l")
+				}else {
+					fmt.Println("no hu")
+				}
 			}
 		}
 

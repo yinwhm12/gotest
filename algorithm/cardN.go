@@ -97,6 +97,7 @@ func CountOrderCards(a []int)(count int)  {
 	return  count
 }
 
+//统计 能形成顺子的数量(原始牌进行统计)
 func TestHu1(a []int,similarMap map[int]int) int {
 	count := 0
 	for _,v := range a{
@@ -200,17 +201,38 @@ func TestHu1(a []int,similarMap map[int]int) int {
 	return count
 }
 
+//统计牌的数量 单张的多少 对的多少 三个的多少
 func EndSum(similarMap map[int]int) (a [4]int) {
 	for i, v := range similarMap{
 		if i != 1000{//去掉王牌的统计 排除 m[1000]会添加到a[]的情况里
 			if v == 0 {
 				a[0]++
-			}else if v == 1  {
+			}else if v == 1  {//单的
 				a[1]++
-			}else if v == 2{
+			}else if v == 2{//对的
 				a[2]++
-			}else if v == 3 {
+			}else if v == 3 {//三个的
 				a[3]++
+			}
+		}
+	}
+	return
+}
+
+//统计原始的每种牌的数量
+func EndOriginalCountCards(similarMap map[int]int) (a [5]int) {
+	for i, v := range similarMap{
+		if i != 1000{//去掉王牌的统计 排除 m[1000]会添加到a[]的情况里
+			if v == 0 {
+				a[0]++
+			}else if v == 1  {//单的
+				a[1]++
+			}else if v == 2{//对的
+				a[2]++
+			}else if v == 3 {//三个的
+				a[3]++
+			}else if v == 4 {
+				a[4]++
 			}
 		}
 	}
@@ -340,10 +362,10 @@ func CountCards(a []int,similarMap map[int]int, maxCard int)(b []int)  {
 }
 
 //m=1时 王牌一张时
-func OneSpecialCards(similarMap map[int]int,b []int,length int)  {
-	count := TestHu1(b,similarMap)
+func OneSpecialCards(similarMap map[int]int,b []int,c [4]int,length,count int)  {
+	//count := TestHu1(b,similarMap)
 	//fmt.Println("count==",count)
-	c := EndSum(similarMap)
+	//c := EndSum(similarMap)
 	//fmt.Println("c=",c)
 	m := similarMap[1000]
 	left := count *3 + c[2] *2 + c[3] * 3
@@ -373,9 +395,9 @@ func OneSpecialCards(similarMap map[int]int,b []int,length int)  {
 }
 
 //m =2 是 王牌数量为2 时
-func TwoSpecialCards(similarMap map[int]int,b []int,length int)  {
-	count := TestHu1(b,similarMap)
-	c := EndSum(similarMap)
+func TwoSpecialCards(similarMap map[int]int,b []int,c [4]int,length,count int)  {
+	//count := TestHu1(b,similarMap)
+	//c := EndSum(similarMap)
 	//fmt.Println("2--c=",c," count=",count)
 	m := similarMap[1000]
 	left := count *3 + c[2] *2 + c[3] * 3
@@ -421,9 +443,10 @@ func TwoSpecialCards(similarMap map[int]int,b []int,length int)  {
 }
 
 //王牌 m=3
-func ThreeSpecialCards(similarMap map[int]int,b []int,length int)  {
-	count := TestHu1(b,similarMap)
-	c := EndSum(similarMap)
+//参数
+func ThreeSpecialCards(similarMap map[int]int,b []int,c [4]int,length,count int,)  {
+	//count := TestHu1(b,similarMap)
+	//c := EndSum(similarMap)
 	m := similarMap[1000]
 	left := count *3 + c[2] *2 + c[3]*3
 	if c[2] == 1{//一个对子存在的情况
@@ -488,3 +511,162 @@ func WacthBlackOrder(b []int,similarMap map[int]int) (hasCount int){
 	}
 	return hasCount
 }
+
+
+
+//七对的情况
+//c[] 为统计牌数
+//3张王牌
+func HuBySevenThreeW(length int,c [5]int)  {
+	//length := len(a)
+	//c
+	//left := length - c[2] * 2
+	if length == 14{
+		switch c[2] {
+			case 4:
+				if c[3]==1 {
+				//	一个杠的七对 龙巧对
+					fmt.Println("hu 已有4个对 有3个1 可以形成一个杠")
+				}else {
+					//七巧对
+					fmt.Println("hu 已有4个对")
+				}
+			case 3:
+				if c[3] == 1{//有一个杠 七对 王钓龙巧
+					fmt.Println("hu 已有3个 且3个的有一个c[3]==1")
+				}
+			case 2:
+				if c[4] == 1{//一个暗杠 龙巧对
+					fmt.Println("hu 已有2个 且4个的有一个c[4]==1")
+				}else if c[3] == 2 && c[1] == 1{//有两个杠的 11 22 333 444 5 王钓龙巧
+					fmt.Println("hu 已有2个 且3个的有2个 1个单")
+				}
+			case 0:
+				if c[4] == 2{
+					//有杠的七对
+					fmt.Println("hu 没有对的，且有4个的两个")
+				}
+			case 1:
+				if c[3] == 3{ //111 111 111 11
+					//有杠的 七对 王钓龙巧
+					fmt.Println("hu 有一对 且3个3的")
+				}
+			case 5:
+				if c[1] == 1{//七巧对
+					fmt.Println("hu 已有5对 + 1个单")
+				}
+			default:
+				fmt.Println("no hu")
+		}
+	}else {//不能胡
+
+	}
+}
+
+//王牌 为2时 能胡的七对
+func HuBySevenTwoW(length int,c [5]int)  {
+	if length == 14{
+		switch c[2] {
+		case 6:
+			if c[1] == 1{
+				fmt.Println("hu 双王当 6对")
+			}else {
+
+			}
+		case 5:
+			if c[1] == 2 {
+				fmt.Println("hu  5对 单个的2")
+			}else {
+
+			}
+		case 4:
+			if c[3] == 1&& c[1] ==1{//
+				fmt.Println("hu 4对 三个的一个")
+			}else if c[4] == 1 && c[1] == 0{
+				fmt.Println("hu 4对 4个的一个")
+			}else {
+
+			}
+		case 3:
+			if c[3] == 2 && c[1] == 0{
+				fmt.Println("hu 3对 3个的2个")
+			}else if c[4] == 1 && c[1] == 2{
+				fmt.Println("hu 3对 4个的一个 2个单")
+			}else {
+
+			}
+		case 2:
+			if c[4] == 2 && c[3] == 0 && c[1] == 2{
+				fmt.Println("hu 2对 4个的2个 单的2个")
+			}else if c[4] == 1 && c[3] == 2&& c[1] == 0{
+				fmt.Println("hu 2对 4个的1个 3个的2个 0个单的")
+			}else {
+
+			}
+		case 1:
+			if c[4] == 3 && c[3] == 0 && c[1] == 0{
+				fmt.Println("hu 1对 4个的3个 3个的0 单的0个")
+			}else if c[4] == 2&& c[3] == 1&& c[1] == 1{
+				fmt.Println("hu 1对 4个的2个 3个的1个 单的1个")
+			}
+		default:
+			fmt.Println("no hu")
+		}
+	}else {
+		fmt.Println("no hu")
+	}
+}
+
+//王牌为1时
+func HuBySevenOneW(length int, c []int)  {
+	if length == 14{
+		switch c[2] {
+		case 6:
+			if c[4] == 0&& c[3] == 1&& c[1] == 1{
+				fmt.Println("hu 6对 单一个 王牌1 6对")
+			} else {
+
+			}
+		case 5:
+			if c[4] == 0&& c[3] ==1 && c[1] ==0 {
+				fmt.Println("hu 5对 3个一个 王牌1 5对")
+			}else {
+
+			}
+		case 4:
+			if c[4] == 1&& c[3] ==0 && c[1] ==1 {
+				fmt.Println("hu 4对 4个的一个 单的一个 王牌1 4对")
+			}else {
+
+			}
+		case 3:
+			if c[4] == 1 && c[3] == 1&& c[1] ==0{
+				fmt.Println("hu 4个的1 3个的1 王牌1 3对")
+			}else {
+
+			}
+		case 2:
+			if c[4] == 2 && c[3] == 0 && c[1] ==1{
+				fmt.Println("hu 4个的2个 单的1个 王牌1 2对")
+			}else {
+
+			}
+		case 1:
+			if c[4] ==2 && c[3] ==1 && c[1] ==0{
+				fmt.Println("hu 4个的2个 3个的1个 王牌1 1对")
+			}else {
+
+			}
+		default:
+			if c[4] ==3 && c[3] ==0&& c[1] ==1{
+				fmt.Println("hu 4个的3个 单个的1 王牌1")
+			}else {
+				fmt.Println("no hu")
+			}
+		}
+	}else {
+
+	}
+}
+
+

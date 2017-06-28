@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 修改后 值是否立刻生效
 func main()  {
@@ -18,6 +20,7 @@ func main()  {
 	for i,v := range m{
 		fmt.Println("i=",i," v=",v)
 	}
+
 	//for i,v := range m{
 	//	if v == 3{
 	//		fmt.Println("i=",i)
