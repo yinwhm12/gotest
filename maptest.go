@@ -15,6 +15,9 @@ func main()  {
 	copyM[106] = 2
 	fmt.Printf("m=%v\n", m)
 	fmt.Printf("copyM=%v\n", copyM)
+	for i,v := range m{
+		fmt.Println("i=",i," v=",v)
+	}
 	//for i,v := range m{
 	//	if v == 3{
 	//		fmt.Println("i=",i)
