@@ -69,6 +69,7 @@ func main()  {
 			fmt.Println("no hu")
 		}else {
 			if count == 0{//没有顺子
+				//下面始 十三烂情况
 				if c[2] == 0 && c[3] == 0&& c[1] == length{//没有对子 三个的
 					blackCount := algorithm.WacthBlackOrder(a,m)
 					if blackCount == 0{//没有暗顺子
