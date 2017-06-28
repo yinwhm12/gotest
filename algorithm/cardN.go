@@ -669,4 +669,37 @@ func HuBySevenOneW(length int, c []int)  {
 	}
 }
 
+// 胡牌 没有王牌
+func HuBySevenZeroW(length int, c [5]int)  {
+	if length == 14{
+		switch c[2] {
+		case 7:
+			if c[4] == 0&& c[3]== 0 && c[1] ==0{
+				fmt.Println("hu 7对 没有王牌")
+			}else{
+
+			}
+		case 5:
+			if c[4] == 1 && c[3] == 0&& c[1]== 0{
+				fmt.Println("hu 5对 4个的1个 没有王牌")
+			}else{
+
+			}
+		case 3:
+			if c[4] == 2 && c[3] == 0 && c[1] ==0{
+				fmt.Println("hu 3对 4个的2个 没有王牌")
+			}else{
+
+			}
+		case 1:
+			if c[4] == 3 && c[3] == 0&& c[1]==0{
+				fmt.Println("hu 1对 4个额3个 没有王牌")
+			}else{
+				fmt.Println("no hu")
+			}
+		}
+	}else {
+		fmt.Println("no hu")
+	}
+}
 
