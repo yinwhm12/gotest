@@ -831,7 +831,8 @@ func IsOneColorCards(b []int) bool  {
 
 // 有一套 或者 2套以上
 //胡牌后才触发
-//
+// 一套 至少 2个对子     ×
+// 两套 至少 4个对子	×
 func HowManyTao(a []int) int  {
 	if len(a) < 8{//少于 8张手牌 无法成立 套型
 
