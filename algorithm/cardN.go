@@ -1,6 +1,9 @@
 package algorithm
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 /*
 根据 鬼(王)牌 数量进行 划分
@@ -348,6 +351,9 @@ func CountCards(a []int,similarMap map[int]int, maxCard int)(b []int)  {
 		}else {
 			b = append(b,a[index])//重新生成的数组
 			similarMap[a[index]]++
+			if a[index] == 405{//红中记录
+				similarMap[1001]++// 1001放置红中的数量
+			}
 		}
 		//if similarMap[a[index]] == 2 {//两个数量
 		//	similarMap[2] ++
@@ -524,36 +530,54 @@ func HuBySevenThreeW(length int,c [5]int)  {
 	if length == 14{
 		switch c[2] {
 			case 4:
-				if c[3]==1 {
+				if c[3]==1{
 				//	一个杠的七对 龙巧对
-					fmt.Println("hu 已有4个对 有3个1 可以形成一个杠")
-				}else {
+					fmt.Println("hu 已有4个对 有3个1 可以形成一个杠 龙巧对")
+				}else if c[1] == 3{
 					//七巧对
-					fmt.Println("hu 已有4个对")
+					fmt.Println("hu 已有4个对,3个单 王钓七巧对")
+				}else {
+
 				}
 			case 3:
-				if c[3] == 1{//有一个杠 七对 王钓龙巧
-					fmt.Println("hu 已有3个 且3个的有一个c[3]==1")
+				if c[3] == 1&& c[1] == 2{//有一个杠 七对 王钓龙巧
+					fmt.Println("hu 已有3个 且3个的有一个c[3]==1 单的2个 王钓七巧对")
+				}else if c[4] ==1&&c[1] ==1&& c[3]==0{
+					fmt.Println("hu 4个的1个 单的一个 王钓龙巧对")
+				}else {
+
 				}
 			case 2:
 				if c[4] == 1{//一个暗杠 龙巧对
-					fmt.Println("hu 已有2个 且4个的有一个c[4]==1")
+					fmt.Println("hu 已有2个 且4个的有一个c[4]==1 王钓龙巧对")
 				}else if c[3] == 2 && c[1] == 1{//有两个杠的 11 22 333 444 5 王钓龙巧
-					fmt.Println("hu 已有2个 且3个的有2个 1个单")
+					fmt.Println("hu 已有2个 且3个的有2个 1个单 王钓七巧对")
+				}else {
+					
 				}
 			case 0:
 				if c[4] == 2{
 					//有杠的七对
-					fmt.Println("hu 没有对的，且有4个的两个")
+					fmt.Println("hu 没有对的，且有4个的两个 王钓龙巧对")
+				}else if c[4] == 1&& c[3] ==2 && c[1] ==1 {
+					fmt.Println("hu 没对 4个的1个 3个的2个 单一个 王钓龙巧对")
+				}else {
+
 				}
 			case 1:
 				if c[3] == 3{ //111 111 111 11
 					//有杠的 七对 王钓龙巧
-					fmt.Println("hu 有一对 且3个3的")
+					fmt.Println("hu 有一对 且3个3的 王钓七巧对")
+				}else if c[4] == 2 && c[1] == 1 {
+					fmt.Println("hu 有一对 4个的2个 单个1个 王钓龙巧对")
+				}else if c[4] ==1 && c[3] ==1 && c[1] ==2 {
+					fmt.Println("hu 有一对 4个的1个 3个的1个 单个的2个 王钓龙巧对")
+				}else {
+
 				}
 			case 5:
 				if c[1] == 1{//七巧对
-					fmt.Println("hu 已有5对 + 1个单")
+					fmt.Println("hu 已有5对 + 1个单 王钓七巧对")
 				}
 			default:
 				fmt.Println("no hu")
@@ -568,49 +592,56 @@ func HuBySevenTwoW(length int,c [5]int)  {
 	if length == 14{
 		switch c[2] {
 		case 6:
-			if c[1] == 1{
-				fmt.Println("hu 双王当 6对")
+			if c[1] == 0{
+				fmt.Println("hu 双王当 6对 王钓七巧对")
 			}else {
-
 			}
 		case 5:
 			if c[1] == 2 {
-				fmt.Println("hu  5对 单个的2")
+				fmt.Println("hu  5对 单个的2 双王 王钓七巧对")
 			}else {
 
 			}
 		case 4:
 			if c[3] == 1&& c[1] ==1{//
-				fmt.Println("hu 4对 三个的一个")
+				fmt.Println("hu 4对 三个的一个 王钓七巧对")
 			}else if c[4] == 1 && c[1] == 0{
-				fmt.Println("hu 4对 4个的一个")
+				fmt.Println("hu 4对 4个的一个 王钓龙巧对")
 			}else {
 
 			}
 		case 3:
 			if c[3] == 2 && c[1] == 0{
-				fmt.Println("hu 3对 3个的2个")
+				fmt.Println("hu 3对 3个的2个 王钓七巧对")
 			}else if c[4] == 1 && c[1] == 2{
-				fmt.Println("hu 3对 4个的一个 2个单")
+				fmt.Println("hu 3对 4个的一个 2个单 王钓龙巧对")
 			}else {
 
 			}
 		case 2:
-			if c[4] == 2 && c[3] == 0 && c[1] == 2{
-				fmt.Println("hu 2对 4个的2个 单的2个")
-			}else if c[4] == 1 && c[3] == 2&& c[1] == 0{
-				fmt.Println("hu 2对 4个的1个 3个的2个 0个单的")
+			if c[4] == 2 && c[3] == 0 && c[1] == 0{
+				fmt.Println("hu 2对 4个的2个 单的2个 王钓龙巧对")
+			}else if c[4] == 1 && c[3] == 1&& c[1] == 1{
+				fmt.Println("hu 2对 4个的1个 3个的1个 1个单的 王钓龙巧对")
 			}else {
 
 			}
 		case 1:
-			if c[4] == 3 && c[3] == 0 && c[1] == 0{
-				fmt.Println("hu 1对 4个的3个 3个的0 单的0个")
-			}else if c[4] == 2&& c[3] == 1&& c[1] == 1{
-				fmt.Println("hu 1对 4个的2个 3个的1个 单的1个")
+			if c[4] == 2 && c[3] == 0 && c[1] == 2{
+				fmt.Println("hu 1对 4个的2个 3个的0 单的2个 王钓龙巧对")
+			}else if c[4] == 1&& c[3] == 2&& c[1] == 0{
+				fmt.Println("hu 1对 4个的1个 3个的2个 单的0个 王钓龙巧对")
+			}else {
+
 			}
 		default:
-			fmt.Println("no hu")
+			if c[4] == 3&& c[3] ==0 &&c[1] ==0{
+				fmt.Println("hu 4个的3个 双王 王钓龙巧对")
+			}else if c[4] ==2 && c[3] ==1 && c[1] ==1{
+				fmt.Println("hu 4个的2个 3个的1个 单一个 王钓龙巧对")
+			}else {
+				fmt.Println("no hu")
+			}
 		}
 	}else {
 		fmt.Println("no hu")
@@ -618,48 +649,47 @@ func HuBySevenTwoW(length int,c [5]int)  {
 }
 
 //王牌为1时
-func HuBySevenOneW(length int, c []int)  {
+func HuBySevenOneW(length int, c [5]int)  {
 	if length == 14{
 		switch c[2] {
 		case 6:
-			if c[4] == 0&& c[3] == 1&& c[1] == 1{
-				fmt.Println("hu 6对 单一个 王牌1 6对")
+			if c[4] == 0&& c[3] == 0&& c[1] == 1{
+				fmt.Println("hu 6对 单一个 王牌1 6对 王钓七巧对")
 			} else {
 
 			}
 		case 5:
 			if c[4] == 0&& c[3] ==1 && c[1] ==0 {
-				fmt.Println("hu 5对 3个一个 王牌1 5对")
+				fmt.Println("hu 5对 3个一个 王牌1 5对 王钓七巧对")
 			}else {
 
 			}
 		case 4:
 			if c[4] == 1&& c[3] ==0 && c[1] ==1 {
-				fmt.Println("hu 4对 4个的一个 单的一个 王牌1 4对")
+				fmt.Println("hu 4对 4个的一个 单的一个 王牌1 4对 王钓龙巧对")
 			}else {
 
 			}
 		case 3:
 			if c[4] == 1 && c[3] == 1&& c[1] ==0{
-				fmt.Println("hu 4个的1 3个的1 王牌1 3对")
+				fmt.Println("hu 4个的1 3个的1 王牌1 3对 王钓龙巧对")
 			}else {
 
 			}
 		case 2:
 			if c[4] == 2 && c[3] == 0 && c[1] ==1{
-				fmt.Println("hu 4个的2个 单的1个 王牌1 2对")
+				fmt.Println("hu 4个的2个 单的1个 王牌1 2对 王钓龙巧对")
 			}else {
-
 			}
 		case 1:
 			if c[4] ==2 && c[3] ==1 && c[1] ==0{
-				fmt.Println("hu 4个的2个 3个的1个 王牌1 1对")
+				fmt.Println("hu 4个的2个 3个的1个 王牌1 1对 王钓龙巧对")
 			}else {
 
 			}
 		default:
 			if c[4] ==3 && c[3] ==0&& c[1] ==1{
-				fmt.Println("hu 4个的3个 单个的1 王牌1")
+				fmt.Println("hu 4个的3个 单个的1 王牌1 王钓龙巧对")
 			}else {
 				fmt.Println("no hu")
 			}
@@ -675,25 +705,25 @@ func HuBySevenZeroW(length int, c [5]int)  {
 		switch c[2] {
 		case 7:
 			if c[4] == 0&& c[3]== 0 && c[1] ==0{
-				fmt.Println("hu 7对 没有王牌")
+				fmt.Println("hu 7对 没有王牌 硬巧对")
 			}else{
 
 			}
 		case 5:
 			if c[4] == 1 && c[3] == 0&& c[1]== 0{
-				fmt.Println("hu 5对 4个的1个 没有王牌")
+				fmt.Println("hu 5对 4个的1个 没有王牌 硬巧对+龙巧对")
 			}else{
 
 			}
 		case 3:
 			if c[4] == 2 && c[3] == 0 && c[1] ==0{
-				fmt.Println("hu 3对 4个的2个 没有王牌")
+				fmt.Println("hu 3对 4个的2个 没有王牌  硬巧对+龙巧对")
 			}else{
 
 			}
 		case 1:
 			if c[4] == 3 && c[3] == 0&& c[1]==0{
-				fmt.Println("hu 1对 4个额3个 没有王牌")
+				fmt.Println("hu 1对 4个额3个 没有王牌 硬巧对+龙巧对")
 			}else{
 				fmt.Println("no hu")
 			}
@@ -703,3 +733,130 @@ func HuBySevenZeroW(length int, c [5]int)  {
 	}
 }
 
+
+//十三烂 情况
+func HuByBadCards(a []int,similarMap map[int]int,count int,c [4]int)  {
+	if count == 0{
+		if c[2] == 0 && c[3] == 0&& c[1] == len(a){
+			blackCount := WacthBlackOrder(a,similarMap)
+			if blackCount == 0{//没有暗顺子
+				sevenCount := 0
+				for {//统计 东南西北中发白
+					if similarMap[401+sevenCount] == 1{
+						sevenCount++
+					}else {
+						break
+					}
+				}
+				if sevenCount == 7{
+					fmt.Println("七风到位⼗三烂")
+				}else{
+					fmt.Println("普通的十三烂")
+				}
+			}else {
+				fmt.Println("no hu 13")
+			}
+		}
+	}
+}
+
+//没有王牌的胡
+//参数 length 长度 count 顺子数
+func HuByOrdinaryCards(length,count,maxCard int, c [4]int,similarMap map[int]int,a []int)  {
+	left := count *3 + c[2] *2 + c[3] *3
+	if length - left == 0 && c[2] == 1 && c[1] == 0{
+		if similarMap[1001] == 0{
+			fmt.Println("hu l 大道")
+		}else {
+			fmt.Println(" hu 普通")
+		}
+	}else if similarMap[1001] > 0{//有红中的情况
+		//b := a//复制a
+		b := make([]int,len(a))
+		copy(b,a)
+		if maxCard == 405{//王牌是 中 不要变化
+
+		}else {
+			for i,v := range b  {
+				if v == 405{
+					b[i] = maxCard
+				}
+			}
+			sort.Ints(b)
+			m := make(map[int]int)
+			CountCards(b,m,maxCard)
+			newCount := TestHu1(b,m)
+			cc := EndSum(m)
+			if length !=2 {//相当于 新的 牌型 但是 始终是 没有王牌的
+				newLeft := newCount * 3 + cc[2] *2 + c[3]*3
+				if length - newLeft == 0&& cc[2] == 1&& cc[1] == 0{
+					fmt.Println("hu 小道")
+				}
+
+			////	七对 不能 替换的
+			//	go func() {
+			//		HuByBadCards(a,m,newCount,cc)//十三烂
+			//	}()
+			//	以上两个协程 可以同时 胡的情况
+			}else{//一张手牌
+				if cc[2] == 1{
+					fmt.Println("hu 全求人 + 小道 没有王牌")
+				}
+			}
+		}
+		fmt.Println("no hu ordinary")
+	}else {
+		fmt.Println("no hu ordinary")
+	}
+}
+
+//统计 牌 色(类型)
+//判断 是否是清一色 先去掉 王牌 在统计 
+//返回 bool    b[] 去掉 王牌的数组
+func IsOneColorCards(b []int) bool  {
+	length := len(b)
+	count := 0
+	for i, v := range b{
+		//similarMap[v]
+		if i + 1 < length{
+			if v / 100 == b[i+1] / 100{
+				count++
+			}else {
+				break
+			}
+		}
+	}
+	return length - count == 0
+}
+
+// 有一套 或者 2套以上
+//胡牌后才触发
+//
+func HowManyTao(a []int) int  {
+	if len(a) < 8{//少于 8张手牌 无法成立 套型
+
+	}else{
+		m := make(map[int]int)
+		b := CountCards(a,m,0)//不排除王牌 连王牌也统计上
+		for _, v := range a{
+			if m[v] == 2{
+				if m[v-1] == 1{
+					if m[v+1] >= 2{
+						m[v-1]--
+						m[v] -= 2
+						m[v+1] -= 2
+					}
+				}else if m[v+1] >= 2 {
+					if m[v+2]== 1{
+						m[v] -= 2
+						m[v] -= 2
+					}
+					m[v] -= 2
+					m[v + 1] -= 2
+					m[v + 2] -= 2
+				}
+			}
+		}
+
+	}
+}

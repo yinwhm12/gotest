@@ -3,6 +3,7 @@ package main
 import (
 	"gotest/algorithm"
 	"fmt"
+	"github.com/name5566/leaf/go"
 )
 
 func main()  {
@@ -42,7 +43,8 @@ func main()  {
 	//a := []int{106,107,108,207,208,209,301,301,302,303,304,309,309,309}// 678w 789t 11d 234d 999d
 	//a := []int{103,104,105,206,207,208,301,302,303,305,306,307,401,405}// 345w 678t 123d 567d 东中(王)
 	//a := []int{101,101,202,203,204,302,302,302,309,309,309,401,401,405}// 11w 234t 222d 999d 东东 中(王)
-	a := []int{109,109,109,204,204,301,301,301,307,307,307,309,309,309}// 999w 44t 111d 777d 999d
+	//a := []int{109,109,109,204,204,301,301,301,307,307,307,309,309,309}// 999w 44t 111d 777d 999d
+	a := []int{101,101,101,101,207,207,207,207,208,208,209,301,405,405}
 	m := make(map[int]int)
 	w := 405 //王牌
 	//algorithm.CountSimilarCards(a,m)
@@ -51,57 +53,99 @@ func main()  {
 	b := algorithm.CountCards(a,m,w)
 	o := algorithm.EndOriginalCountCards(m)//统计原始的每种牌的数量
 	fmt.Println("b=",b)
+	fmt.Println("oo=",o)
 	fmt.Println("f-m=",m)
 	length := len(a)
 	count := algorithm.TestHu1(a,m)
 	c := algorithm.EndSum(m)//统计变化后的每种牌 的数量
+	d := g.New(10)
+	//chanC := d.NewLinearContext()
 	switch m[1000] {
 		case 1:
-			algorithm.OneSpecialCards(m,b,c,length,count)
+			if length == 2{//一张手牌
+				fmt.Println("hu 全求人")
+			}else {//
+				d.Go(func() {
+					algorithm.OneSpecialCards(m,b,c,length,count)
+				}, func() {
+					algorithm.HuBySevenOneW(length,o)
+				})
+			}
+			//algorithm.OneSpecialCards(m,b,c,length,count)
 		case 2:
-			algorithm.TwoSpecialCards(m,b,c,length,count)
+			d.Go(func() {
+				algorithm.TwoSpecialCards(m,b,c,length,count)
+			},nil)
+			d.Go(func() {
+				algorithm.HuBySevenTwoW(length,o)
+			},nil)
+			d.Cb(<-d.ChanCb)
+			d.Cb(<-d.ChanCb)
 		case 3:
-			algorithm.ThreeSpecialCards(m,b,c,length,count)
-			//同时进行看是否能有两种胡牌
-			algorithm.HuBySevenThreeW(length,o)
+			//algorithm.ThreeSpecialCards(m,b,c,length,count)
+			////同时进行看是否能有两种胡牌
+			//algorithm.HuBySevenThreeW(length,o)
+			d.Go(func() {
+				algorithm.ThreeSpecialCards(m,b,c,length,count)
+			},nil)
+			d.Go(func() {
+				algorithm.HuBySevenThreeW(length,o)
+			},nil)
 	default:
-		if c[1] != 0{
-			fmt.Println("no hu")
-		}else {
-			if count == 0{//没有顺子
-				//下面始 十三烂情况
-				if c[2] == 0 && c[3] == 0&& c[1] == length{//没有对子 三个的
-					blackCount := algorithm.WacthBlackOrder(a,m)
-					if blackCount == 0{//没有暗顺子
-						sevenCount := 0
-						for {//统计 东南西北中发白
-							if m[401+sevenCount] == 1{
-								sevenCount++
-							}else {
-								break
-							}
-						}
-						if sevenCount == 7{
-							fmt.Println("七风到位⼗三烂")
-						}else{
-							fmt.Println("普通的十三烂")
-						}
-					}else {
-						fmt.Println("no hu")
-					}
-				}else {
-					fmt.Println("no hu")
-				}
-			}else {//有顺子
-				left := count *3 + c[2] *2 + c[3] *3
-				if length - left == 0 && c[2] == 1{
-					fmt.Println("hu l")
-				}else {
-					fmt.Println("no hu")
-				}
+		//if c[1] != 0{
+		//	fmt.Println("no hu")
+		//}else {
+			//if count == 0{//没有顺子
+			//	//下面始 十三烂情况
+			//	if c[2] == 0 && c[3] == 0&& c[1] == length{//没有对子 三个的
+			//		//algorithm.HuByBadCards(a,m)//十三烂
+			//		//blackCount := algorithm.WacthBlackOrder(a,m)
+			//		//if blackCount == 0{//没有暗顺子
+			//		//	sevenCount := 0
+			//		//	for {//统计 东南西北中发白
+			//		//		if m[401+sevenCount] == 1{
+			//		//			sevenCount++
+			//		//		}else {
+			//		//			break
+			//		//		}
+			//		//	}
+			//		//	if sevenCount == 7{
+			//		//		fmt.Println("七风到位⼗三烂")
+			//		//	}else{
+			//		//		fmt.Println("普通的十三烂")
+			//		//	}
+			//		//}else {
+			//		//	fmt.Println("no hu")
+			//		//}
+			//	}else {
+			//		//没有顺子 但是有这种情况 111 111 111 11
+			//		left := count *3 + c[2] *2 + c[3] *3//count == 0
+			//		if length - left == 0 && c[2] == 1{
+			//			fmt.Println("hu l")
+			//		}else {
+			//			fmt.Println("no hu")
+			//		}
+			//		//fmt.Println("no hu")
+			//	}
+			//}else {//有顺子
+			//	fmt.Println("没有王牌 ",c)
+			//	left := count *3 + c[2] *2 + c[3] *3
+			//	if length - left == 0 && c[2] == 1{
+			//		fmt.Println("hu l")
+			//	}else {
+			//		fmt.Println("no hu")
+			//	}
+			//}
+		if length !=2{
+			algorithm.HuByOrdinaryCards(length,count,w,c,m,a)//普通胡牌
+			algorithm.HuBySevenZeroW(length,o)//七对 胡牌
+			algorithm.HuByBadCards(a,m,count,c)//十三烂 胡牌
+		}else {//一张手牌
+			if c[2] == 1{
+				fmt.Println("hu 全求人 没有王牌")
 			}
 		}
-
+	//	}
 	}
 	//if m[1000] > 0{//有王牌
 	//
