@@ -44,7 +44,10 @@ func main()  {
 	//a := []int{103,104,105,206,207,208,301,302,303,305,306,307,401,405}// 345w 678t 123d 567d 东中(王)
 	//a := []int{101,101,202,203,204,302,302,302,309,309,309,401,401,405}// 11w 234t 222d 999d 东东 中(王)
 	//a := []int{109,109,109,204,204,301,301,301,307,307,307,309,309,309}// 999w 44t 111d 777d 999d
-	a := []int{101,101,101,101,207,207,207,207,208,208,209,301,405,405}
+	//a := []int{101,101,101,101,207,207,207,207,208,208,209,301,405,405}
+
+	//a := []int{102,103,103,104,104,207,207,208,208,208,301,301,405,405}
+	a := []int{103,103,104,104,207,207,208,208,208,405,405}
 	m := make(map[int]int)
 	w := 405 //王牌
 	//algorithm.CountSimilarCards(a,m)
@@ -67,30 +70,47 @@ func main()  {
 			}else {//
 				d.Go(func() {
 					algorithm.OneSpecialCards(m,b,c,length,count)
-				}, func() {
+				}, nil)
+
+				d.Go(func() {
 					algorithm.HuBySevenOneW(length,o)
-				})
+				},nil)
+				//algorithm.OneSpecialCards(m,b,c,length,count)
+				//algorithm.HuBySevenOneW(length,o)
+				d.Cb(<-d.ChanCb)
+				d.Cb(<-d.ChanCb)
+				tCount := algorithm.Tao(a,m,false)
+				fmt.Println("tao = ",tCount)
 			}
 			//algorithm.OneSpecialCards(m,b,c,length,count)
 		case 2:
-			d.Go(func() {
-				algorithm.TwoSpecialCards(m,b,c,length,count)
-			},nil)
-			d.Go(func() {
-				algorithm.HuBySevenTwoW(length,o)
-			},nil)
-			d.Cb(<-d.ChanCb)
-			d.Cb(<-d.ChanCb)
+			//d.Go(func() {
+			//	algorithm.TwoSpecialCards(m,b,c,length,count)
+			//},nil)
+			//d.Go(func() {
+			//	algorithm.HuBySevenTwoW(length,o)
+			//},nil)
+			//d.Cb(<-d.ChanCb)
+			//d.Cb(<-d.ChanCb)
+			algorithm.TwoSpecialCards(m,b,c,length,count)
+			algorithm.HuBySevenTwoW(length,o)
+			tCount := algorithm.Tao(a,m,true)
+			fmt.Println("tao = ",tCount)
+
 		case 3:
 			//algorithm.ThreeSpecialCards(m,b,c,length,count)
 			////同时进行看是否能有两种胡牌
 			//algorithm.HuBySevenThreeW(length,o)
-			d.Go(func() {
-				algorithm.ThreeSpecialCards(m,b,c,length,count)
-			},nil)
-			d.Go(func() {
-				algorithm.HuBySevenThreeW(length,o)
-			},nil)
+			//d.Go(func() {
+			//	algorithm.ThreeSpecialCards(m,b,c,length,count)
+			//},nil)
+			//d.Go(func() {
+			//	algorithm.HuBySevenThreeW(length,o)
+			//},nil)
+			algorithm.ThreeSpecialCards(m,b,c,length,count)
+			algorithm.HuBySevenThreeW(length,o)
+			tCount := algorithm.Tao(a,m,false)
+			fmt.Println("tao = ",tCount)
 	default:
 		//if c[1] != 0{
 		//	fmt.Println("no hu")

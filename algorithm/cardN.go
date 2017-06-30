@@ -493,7 +493,7 @@ func ThreeSpecialCards(similarMap map[int]int,b []int,c [4]int,length,count int,
 			fmt.Println("hu 一个暗子 无对子")
 		}else if c[1] == 5 && length - left == c[1] +m && WacthBlackOrder(b,similarMap) == 2 {
 		//	存在 两个暗子 一个单
-			fmt.Println("hu 两个暗子 一个单")
+			fmt.Println("hu 两个暗子 5个单")
 		}else {
 			fmt.Println("no hu" )
 		}
@@ -833,31 +833,111 @@ func IsOneColorCards(b []int) bool  {
 //胡牌后才触发
 // 一套 至少 2个对子     ×
 // 两套 至少 4个对子	×
-func HowManyTao(a []int) int  {
-	if len(a) < 8{//少于 8张手牌 无法成立 套型
+//func HowManyTao(a []int) int  {
+//	if len(a) < 8{//少于 8张手牌 无法成立 套型
+//
+//	}else{
+//		m := make(map[int]int)
+//		b := CountCards(a,m,0)//不排除王牌 连王牌也统计上
+//		for _, v := range a{
+//			if m[v] == 2{
+//				if m[v-1] == 1{
+//					if m[v+1] >= 2{
+//						m[v-1]--
+//						m[v] -= 2
+//						m[v+1] -= 2
+//					}
+//				}else if m[v+1] >= 2 {
+//					if m[v+2]== 1{
+//						m[v] -= 2
+//						m[v] -= 2
+//					}
+//					m[v] -= 2
+//					m[v + 1] -= 2
+//					m[v + 2] -= 2
+//				}
+//			}
+//		}
+//
+//	}
+//}
 
-	}else{
-		m := make(map[int]int)
-		b := CountCards(a,m,0)//不排除王牌 连王牌也统计上
-		for _, v := range a{
-			if m[v] == 2{
-				if m[v-1] == 1{
-					if m[v+1] >= 2{
-						m[v-1]--
-						m[v] -= 2
-						m[v+1] -= 2
+//参数 a[]原始数组 similarMap 经过取顺子后的 flag 是否是3n*2胡的类型
+func Tao(a []int, similarMap map[int]int,flag bool) int {
+	count := 0//记数
+	//flag := true
+	if len(a) < 8{//手牌 少于8 不能形成 套型
+		return count
+	}
+	m := make(map[int]int)
+	CountCards(a,m,405)
+	fmt.Println("map =m =",m)
+	c := EndOriginalCountCards(m)
+	fmt.Println("c =",c)
+	if c[2] + c[3] + c[4] < 2{ //手牌上的对子少于 2对 不能形成 套型
+		return count
+	}
+	if len(a) == 14 && !flag{
+		similarMap = m
+	}
+	for _, v := range a{
+		fmt.Println("v=",v)
+		if m[v] >=2 && m[v+1] >= 2{
+			fmt.Println("in-first v=",v)
+					if flag{
+						//胡 不是七对胡 3n+2 >= 8
+						if vv, ok := similarMap[v]; ok {//
+							fmt.Println("vv,",vv)
+							if vvv, ok1 := similarMap[v+1]; ok1 {
+								fmt.Println("vvv",vvv)
+								//if m[v] - vv >= 2 && m[v+1] - vvv >=2{
+								if m[v-1] == 1|| m[v+2] >0{
+									m[v] -= 2
+									m[v+1] -= 2
+									count ++
+								}
+								//}
+							}
+						}
+					}else{
+					//	是 七对胡
+						count++
+						m[v] -=2
+						m[v+1] -=2
 					}
-				}else if m[v+1] >= 2 {
-					if m[v+2]== 1{
-						m[v] -= 2
-						m[v] -= 2
-					}
+		}else if m[v] >= 2&& m[v+2] >=2 {
+			if !flag{//七对胡
+				if m[v + 1] >0{
 					m[v] -= 2
-					m[v + 1] -= 2
-					m[v + 2] -= 2
+					m[v+1] -= 2
+					count++
+				}
+			}else {
+				if vv, ok := similarMap[v]; ok {
+					if vvv, ok1 := similarMap[v+2]; ok1 {
+						if m[v] - vv >= 2 && m[v+2] - vvv >=2{
+							count ++
+							m[v] -= 2
+							m[v+1] -= 2
+						}
+					}
 				}
 			}
 		}
-
 	}
+	//for _, v := range m {
+	//	fmt.Println("v--v=",v)
+	//	if m[v] >=2 && m[v+1] >= 2{
+	//		if vv, ok := similarMap[v]; ok {
+	//			if vvv, ok1 := similarMap[v+1]; ok1 {
+	//				if m[v] - vv >= 2 && m[v+1] - vvv >=2{
+	//					count ++
+	//					m[v] -= 2
+	//					m[v+1] -= 2
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
+	return count
 }
