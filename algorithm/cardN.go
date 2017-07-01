@@ -3,6 +3,7 @@ package algorithm
 import (
 	"fmt"
 	"sort"
+	"mime/multipart"
 )
 
 /*
@@ -940,4 +941,150 @@ func Tao(a []int, similarMap map[int]int,flag bool) int {
 	//	}
 	//}
 	return count
+}
+
+
+//套类型
+//手牌 8张
+//参数count 顺子数，maxCard 王牌值	a[] 原始数据(手牌)
+func TaoByEightCards(count,maxCard int, a []int)  {
+	m := make(map[int]int)
+	CountCards(a,m,maxCard)
+	fmt.Println("map =m =",m)
+	c := EndOriginalCountCards(m)
+	for _,v := range a{
+		if (m[v] >= 2 &&m[v+1] >=2) ||(m[v]>=2 && m[v+2] >=2){//对子的才有 22 33 / 22 44 类型的
+			if count == 2{//两个顺子
+				fmt.Println("有一套")
+			}else if m[1000] == 3{
+				fmt.Println("有一套")
+			} else if m[1000] == 2 {
+				if c[2] == 3{//三个对子
+					fmt.Println("有一套")
+				}else if c[2] == 1&&c[4] == 1 {//2222 33 _ _
+					fmt.Println("有一套")
+				} else{
+					if GetOrderCounts(v,m){//
+						fmt.Println("有一套")
+					}else {
+						fmt.Println("没有一套")
+					}
+				}
+			}else if m[1000] == 1{
+			//	只要 有一个暗顺 即可
+				if GetOrderCounts(v,m){//1 22 33 77 _
+					fmt.Println("有一套")
+				}else {
+					fmt.Println("没哟一套")
+				}
+				
+			}else {
+				fmt.Println("没有一套")
+			}
+		}
+	}
+}
+
+//11张牌
+//  count 顺子的数量(胡后)
+func TaoByElevenCards(count,maxCard int,a []int,similarMap map[int]int)   {
+	m := make(map[int]int)
+	CountCards(a,m,maxCard)
+	fmt.Println("map =m =",m)
+	c := EndOriginalCountCards(m)
+	for _, v := range a{
+		if (m[v] >= 2 &&m[v+1] >=2) ||(m[v]>=2 && m[v+2] >=2){
+			if count == 3{
+				fmt.Println("有一套")
+			}else if m[1000] == 3 {
+				if count == 2|| c[3] ==2{
+					fmt.Println("有一套")
+				}else if GetOrderCounts(v,m){//有一个顺子即可 要对子参与
+					fmt.Println("有一套")
+				}else {
+					if count == 1 || c[3] == 1 || c[2] == 4{
+						fmt.Println("有一套")
+					}else{
+
+					}
+				}
+			}else if m[1000] == 2{
+				if GetOrderCounts(v,m){//参与暗顺
+					fmt.Println("有一套")
+					break
+				}else {//没有参与
+					if c[2] == 3{
+						if count == 1 || c[3] == 1{
+							fmt.Println("有一套")
+						}else {
+
+						}
+					}else {
+						fmt.Println("没有一套")
+					}
+				}
+			}else if m[1000]== 1{
+				if GetOrderCounts(v,m){
+					fmt.Println("有一套")
+				}
+			}else{
+				fmt.Println("没有一套")
+			}
+		}
+	}
+}
+
+//14张牌
+//
+func TaoByFourteenCards(count,maxCard int,a []int,similarMap map[int]int)  {
+	m := make(map[int]int)
+	CountCards(a,m,maxCard)
+	fmt.Println("map =m =",m)
+	c := EndOriginalCountCards(m)
+	for _, v := range m{
+		if (m[v] >= 2 &&m[v+1]>=2)||(m[v]>=2 && m[v+2] >=2){
+			if c[2] >= 2{//有套 基本条件
+				if c[2] >= 4{//有两套 基本条件
+
+				}
+			}
+		}
+	}
+}
+
+//判断 是否是连续的 对子 基本有顺
+func AboveDoubleArray(m map[int]int) (bMap map[int]int){
+	//falg := false
+	for i,v := range m{
+		if v >= 2{
+			if m[i+1] >= 2 || m[i+2] >= 2{
+					bMap[i] = v
+			}
+		}
+	}
+}
+
+// 统计 2
+
+//顺子 计算 不管是对或者三个的 只要符合 都算上
+//为了 统计 1套 对子是否参与
+func GetOrderCounts(v int,m map[int]int) bool {
+	//flag := false
+		if m[v+1] >=2 {//顺子的暗顺
+			if m[v-1] > 0 || m[v+2] >0 {
+			//	有一套 即有一个顺子
+				return true
+			}else{
+				return false
+			}
+		}else if m[v+2] >= 2{//间隔 的暗顺
+			if m[v+1] > 0{
+				//fmt.Println("有一套")
+				return true
+			}else {
+				return false
+			}
+		}else {
+			return  false
+		}
 }
