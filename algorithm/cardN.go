@@ -3,7 +3,6 @@ package algorithm
 import (
 	"fmt"
 	"sort"
-	"mime/multipart"
 )
 
 /*
@@ -1053,15 +1052,66 @@ func TaoByFourteenCards(count,maxCard int,a []int,similarMap map[int]int)  {
 }
 
 //判断 是否是连续的 对子 基本有顺
-func AboveDoubleArray(m map[int]int) (bMap map[int]int){
+func AboveDoubleArray(a []int,m map[int]int) int {
 	//falg := false
-	for i,v := range m{
-		if v >= 2{
-			if m[i+1] >= 2 || m[i+2] >= 2{
-					bMap[i] = v
+	count := 0
+	for i, v := range a {
+		//if m[v] >= 2 && m[v] < 20 {//先用 20 做区别 符合的
+		//	if m[v+1] >= 2 {
+		//		m[v] += 20
+		//		m[v+1] += 20
+		//		count++
+		//	} else if m[v+2] >= 2 {
+		//		m[v] += 20
+		//		m[v+2] += 20
+		//		count++
+		//	}
+		//}
+		////fmt.Println("22-",m)
+		//if m[v] > 20{//将是 20以上的 还原
+		//	m[v] -= 20
+		//}
+		//fmt.Println("33-",m)
+
+		if i == 0{//首次
+			if m[v]>=2{
+				if m[v+1] >= 2 {
+					m[v] += 20
+					m[v+1] += 20
+					count++
+				} else if m[v+2] >= 2 {
+					m[v] += 20
+					m[v+2] += 20
+					count++
+				}
+			}
+		}else{
+			if a[i] == a[i-1]{//第二轮
+				if m[v] >20{
+					m[v] -= 20
+				}
+			}else {//第一轮
+				if m[v]>=2&&m[v]< 20{
+					if m[v+1] >= 2 &&m[v+1] <20{
+						m[v] += 20
+						m[v+1] += 20
+						count++
+					} else if m[v+2] >= 2&&m[v+1] <20 {
+						m[v] += 20
+						m[v+2] += 20
+						count++
+					}
+				}
 			}
 		}
+
 	}
+
+
+
+
+	return count
+
 }
 
 // 统计 2
