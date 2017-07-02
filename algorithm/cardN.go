@@ -1052,36 +1052,24 @@ func TaoByFourteenCards(count,maxCard int,a []int,similarMap map[int]int)  {
 }
 
 //判断 是否是连续的 对子 基本有顺
-func AboveDoubleArray(a []int,m map[int]int) int {
+//返回 是就基本有顺序的 对子（两个为一组 ）  的个数
+func AboveDoubleArray(a []int,m map[int]int) (int,[]int) {
 	//falg := false
 	count := 0
+	b := make([]int,3)
 	for i, v := range a {
-		//if m[v] >= 2 && m[v] < 20 {//先用 20 做区别 符合的
-		//	if m[v+1] >= 2 {
-		//		m[v] += 20
-		//		m[v+1] += 20
-		//		count++
-		//	} else if m[v+2] >= 2 {
-		//		m[v] += 20
-		//		m[v+2] += 20
-		//		count++
-		//	}
-		//}
-		////fmt.Println("22-",m)
-		//if m[v] > 20{//将是 20以上的 还原
-		//	m[v] -= 20
-		//}
-		//fmt.Println("33-",m)
 
 		if i == 0{//首次
 			if m[v]>=2{
 				if m[v+1] >= 2 {
 					m[v] += 20
 					m[v+1] += 20
+					b[count]= v
 					count++
 				} else if m[v+2] >= 2 {
 					m[v] += 20
 					m[v+2] += 20
+					b[count] = v
 					count++
 				}
 			}
@@ -1095,10 +1083,12 @@ func AboveDoubleArray(a []int,m map[int]int) int {
 					if m[v+1] >= 2 &&m[v+1] <20{
 						m[v] += 20
 						m[v+1] += 20
+						b[count] = v
 						count++
 					} else if m[v+2] >= 2&&m[v+1] <20 {
 						m[v] += 20
 						m[v+2] += 20
+						b[count] = v
 						count++
 					}
 				}
@@ -1106,11 +1096,7 @@ func AboveDoubleArray(a []int,m map[int]int) int {
 		}
 
 	}
-
-
-
-
-	return count
+	return count,b
 
 }
 
