@@ -79,8 +79,7 @@ func main()  {
 				//algorithm.HuBySevenOneW(length,o)
 				d.Cb(<-d.ChanCb)
 				d.Cb(<-d.ChanCb)
-				tCount := algorithm.Tao(a,m,false)
-				fmt.Println("tao = ",tCount)
+
 			}
 			//algorithm.OneSpecialCards(m,b,c,length,count)
 		case 2:
@@ -94,8 +93,7 @@ func main()  {
 			//d.Cb(<-d.ChanCb)
 			algorithm.TwoSpecialCards(m,b,c,length,count)
 			algorithm.HuBySevenTwoW(length,o)
-			tCount := algorithm.Tao(a,m,true)
-			fmt.Println("tao = ",tCount)
+
 
 		case 3:
 			//algorithm.ThreeSpecialCards(m,b,c,length,count)
@@ -109,8 +107,7 @@ func main()  {
 			//},nil)
 			algorithm.ThreeSpecialCards(m,b,c,length,count)
 			algorithm.HuBySevenThreeW(length,o)
-			tCount := algorithm.Tao(a,m,false)
-			fmt.Println("tao = ",tCount)
+
 	default:
 		//if c[1] != 0{
 		//	fmt.Println("no hu")

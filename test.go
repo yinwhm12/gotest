@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gotest/algorithm"
 	"fmt"
+	"gotest/algorithm"
 )
 
 func main()  {
@@ -16,16 +16,44 @@ func main()  {
 	//a := []int{101,101,102,102,103,103,104,104}
 	//a := []int{101,101,102,102,103,103,104,105,105}
 
-	a := []int{101,101,102,102,103,103,104,104,105,105,106,106,107,107}
-	var m map[int]int
-	m = make(map[int]int)
-	algorithm.CountCards(a,m,401)
-	fmt.Println("1-",m)
-	fmt.Println(a)
-	count,b := algorithm.AboveDoubleArray(a,m)
-	fmt.Println("count=",count)
-	fmt.Println("len-b=",len(b))
-	fmt.Println("b=",b)
-	fmt.Println("m=",m)
+	//a := []int{101,101,102,102,103,103,105,105}
+	//a := []int{101,101,102,102,103,103,401,401}
+	//a := []int{102,102,103,103,201,201,401,401}
+	//a := []int{101,102,102,103,103,201,401,401}
 
+	//a := []int{102,102,103,103,201,201,203,204,205,401,401}
+	//a := []int{102,102,102,103,103,203,204,205,401,401,401}
+	//a := []int{102,102,102,103,103,104,104,104,401,401,401}
+	//a := []int{102,102,102,103,103,104,104,104,401,401,401}
+
+	//a := []int{101,101,102,102,103,103,104,104,105,105,106,106,107,107}
+	//a := []int{102,102,103,103,104,104,104,105,106,107,107,401,401,401,}
+	a := []int{102,102,103,103,104,104,104,105,106,107,107,401,401,401,}
+	switch len(a) {
+	case 8:
+		algorithm.TaoByEightCards(401,a)
+	case 11:
+		algorithm.TaoByElevenCards(401,a)
+	case 14:
+		algorithm.TaoByFourteenCards(401,a)
+	default:
+		fmt.Println("没有套")
+
+
+	}
+	//var m map[int]int
+	//m = make(map[int]int)
+	//algorithm.CountCards(a,m,401)
+	//fmt.Println("1-",m)
+	//fmt.Println(a)
+	//count,b := algorithm.AboveDoubleArray(a,m)
+	//fmt.Println("count=",count)
+	//fmt.Println("len-b=",len(b))
+	//fmt.Println("b=",b)
+	//fmt.Println("m=",m)
+
+	//b := make([]int,3)
+	//b[0] = 1
+	//fmt.Println(len(b))
+	//fmt.Println(cap(b))
 }

@@ -5,26 +5,6 @@ import (
 	"sort"
 )
 
-/*
-根据 鬼(王)牌 数量进行 划分
- */
-func ZeroSpecialCards(a []int)  {
-	var similarMap map[int]int
-	//var countOrderCards int //统计 顺子数目
-	length := len(a)
-	CountSimilarCards(a,similarMap)//统计 对数
-	if len(similarMap) == 1{//一种情况 对子只有一个 //说明可以胡牌
-	//	判断是否 是3n
-		for i := 0; i < length;{
-			//j := i
-			i = FindTypeCards(a,i)
-		}
-
-	}else {
-	//	胡不了
-	}
-
-}
 
 /*
 统计牌的对数
@@ -49,33 +29,6 @@ func CountSimilarCards(a []int,similarMap map[int]int)  {
 	//return 0
 }
 
-//
-func IsHu(a []int,similarMap map[int]int)  {
-	length := len(a)
-	if length < 3{
-		return
-	}
-	for i := 0 ; i < len(a) ; i++{
-		//similarMap[]
-	//	三个
-		if v, ok := similarMap[a[i]]; ok{
-			if v == 3{//是三个
-
-			}else if v == 2 {
-
-			}else {//一个
-				//if v1,ok1 := similarMap[a[i]+1]; ok1{
-				//	if v1 >0{
-				//		similarMap[a[i+1]]--
-				//	}else {
-				//	//	缺少
-				//	}
-				//}
-
-			}
-		}
-	}
-}
 
 /*
 统计同类型下的 顺子(三个)数目 3n
@@ -829,230 +782,346 @@ func IsOneColorCards(b []int) bool  {
 	return length - count == 0
 }
 
-// 有一套 或者 2套以上
-//胡牌后才触发
-// 一套 至少 2个对子     ×
-// 两套 至少 4个对子	×
-//func HowManyTao(a []int) int  {
-//	if len(a) < 8{//少于 8张手牌 无法成立 套型
-//
-//	}else{
-//		m := make(map[int]int)
-//		b := CountCards(a,m,0)//不排除王牌 连王牌也统计上
-//		for _, v := range a{
-//			if m[v] == 2{
-//				if m[v-1] == 1{
-//					if m[v+1] >= 2{
-//						m[v-1]--
-//						m[v] -= 2
-//						m[v+1] -= 2
-//					}
-//				}else if m[v+1] >= 2 {
-//					if m[v+2]== 1{
-//						m[v] -= 2
-//						m[v] -= 2
-//					}
-//					m[v] -= 2
-//					m[v + 1] -= 2
-//					m[v + 2] -= 2
-//				}
-//			}
-//		}
-//
-//	}
-//}
-
-//参数 a[]原始数组 similarMap 经过取顺子后的 flag 是否是3n*2胡的类型
-func Tao(a []int, similarMap map[int]int,flag bool) int {
-	count := 0//记数
-	//flag := true
-	if len(a) < 8{//手牌 少于8 不能形成 套型
-		return count
-	}
-	m := make(map[int]int)
-	CountCards(a,m,405)
-	fmt.Println("map =m =",m)
-	c := EndOriginalCountCards(m)
-	fmt.Println("c =",c)
-	if c[2] + c[3] + c[4] < 2{ //手牌上的对子少于 2对 不能形成 套型
-		return count
-	}
-	if len(a) == 14 && !flag{
-		similarMap = m
-	}
-	for _, v := range a{
-		fmt.Println("v=",v)
-		if m[v] >=2 && m[v+1] >= 2{
-			fmt.Println("in-first v=",v)
-					if flag{
-						//胡 不是七对胡 3n+2 >= 8
-						if vv, ok := similarMap[v]; ok {//
-							fmt.Println("vv,",vv)
-							if vvv, ok1 := similarMap[v+1]; ok1 {
-								fmt.Println("vvv",vvv)
-								//if m[v] - vv >= 2 && m[v+1] - vvv >=2{
-								if m[v-1] == 1|| m[v+2] >0{
-									m[v] -= 2
-									m[v+1] -= 2
-									count ++
-								}
-								//}
-							}
-						}
-					}else{
-					//	是 七对胡
-						count++
-						m[v] -=2
-						m[v+1] -=2
-					}
-		}else if m[v] >= 2&& m[v+2] >=2 {
-			if !flag{//七对胡
-				if m[v + 1] >0{
-					m[v] -= 2
-					m[v+1] -= 2
-					count++
-				}
-			}else {
-				if vv, ok := similarMap[v]; ok {
-					if vvv, ok1 := similarMap[v+2]; ok1 {
-						if m[v] - vv >= 2 && m[v+2] - vvv >=2{
-							count ++
-							m[v] -= 2
-							m[v+1] -= 2
-						}
-					}
-				}
-			}
-		}
-	}
-	//for _, v := range m {
-	//	fmt.Println("v--v=",v)
-	//	if m[v] >=2 && m[v+1] >= 2{
-	//		if vv, ok := similarMap[v]; ok {
-	//			if vvv, ok1 := similarMap[v+1]; ok1 {
-	//				if m[v] - vv >= 2 && m[v+1] - vvv >=2{
-	//					count ++
-	//					m[v] -= 2
-	//					m[v+1] -= 2
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
-	return count
-}
 
 
 //套类型
 //手牌 8张
-//参数count 顺子数，maxCard 王牌值	a[] 原始数据(手牌)
-func TaoByEightCards(count,maxCard int, a []int)  {
+//参数maxCard 王牌值	a[] 原始数据(手牌)
+func TaoByEightCards(maxCard int, a []int)  {
 	m := make(map[int]int)
 	CountCards(a,m,maxCard)
 	fmt.Println("map =m =",m)
 	c := EndOriginalCountCards(m)
-	for _,v := range a{
-		if (m[v] >= 2 &&m[v+1] >=2) ||(m[v]>=2 && m[v+2] >=2){//对子的才有 22 33 / 22 44 类型的
-			if count == 2{//两个顺子
+	if c[2] + c[3] + c[4] >= 2{//至少 有两对
+		anCount, b := AboveDoubleArray(a,m)
+		if anCount >= 1{//有暗顺的对子
+			if GetOrderCounts(b[0],m){//直接参与
 				fmt.Println("有一套")
-			}else if m[1000] == 3{
+			}else{//不直接参与
+				if m[1000] >= 3{
+					fmt.Println("有一套")
+				}else if m[1000] == 2{
+					if c[2] == 3{
+						fmt.Println("有一套")
+					} else {
+						fmt.Println("没有一套")
+					}
+				}else {
+					fmt.Println("没有一套")
+				}
+			}
+		}else{//没哟 暗顺的对子
+			fmt.Println("没有一套")
+		}
+	}else {
+		fmt.Println("没有一套")
+	}
+	//for _,v := range a{
+	//	if (m[v] >= 2 &&m[v+1] >=2) ||(m[v]>=2 && m[v+2] >=2){//对子的才有 22 33 / 22 44 类型的
+	//		if count == 2{//两个顺子
+	//			fmt.Println("有一套")
+	//		}else if m[1000] == 3{
+	//			fmt.Println("有一套")
+	//		} else if m[1000] == 2 {
+	//			if c[2] == 3{//三个对子
+	//				fmt.Println("有一套")
+	//			}else if c[2] == 1&&c[4] == 1 {//2222 33 _ _
+	//				fmt.Println("有一套")
+	//			} else{
+	//				if GetOrderCounts(v,m){//
+	//					fmt.Println("有一套")
+	//				}else {
+	//					fmt.Println("没有一套")
+	//				}
+	//			}
+	//		}else if m[1000] == 1{
+	//		//	只要 有一个暗顺 即可
+	//			if GetOrderCounts(v,m){//1 22 33 77 _
+	//				fmt.Println("有一套")
+	//			}else {
+	//				fmt.Println("没哟一套")
+	//			}
+	//
+	//		}else {
+	//			fmt.Println("没有一套")
+	//		}
+	//	}
+	//}
+}
+
+//11张牌
+//
+func TaoByElevenCards(maxCard int,a []int)   {
+	m := make(map[int]int)
+	CountCards(a,m,maxCard)
+	fmt.Println("map =m =",m)
+	c := EndOriginalCountCards(m)
+	if c[2] + c[3] + c[4] >=2{//至少要两队
+		anCount, b := AboveDoubleArray(a,m)
+		if anCount >= 1{//有连续的2对
+			if GetOrderCounts(b[0],m){//直接参与的
 				fmt.Println("有一套")
-			} else if m[1000] == 2 {
-				if c[2] == 3{//三个对子
-					fmt.Println("有一套")
-				}else if c[2] == 1&&c[4] == 1 {//2222 33 _ _
-					fmt.Println("有一套")
-				} else{
-					if GetOrderCounts(v,m){//
+			}else {//没有直接参与的
+				if m[1000] >= 3{
+					if c[2]==2&&c[3] == 1&& c[1]==1{// -- 22 33 xxx d -
+						fmt.Println("有一套")
+					}else if c[2]==2 && c[3] == 0&& c[1] ==4 {//-- 22 33 abc d -
+						fmt.Println("有一套")
+					}else if c[2]==1 && c[3]==2&&c[1] ==0 {//--- 222 33 xxx
+						fmt.Println("有一套")
+					}else if c[2] == 1&& c[3]==1 && c[1] == 3 {//--- 222 33 abc
+						fmt.Println("有一套")
+					}else if c[4] ==1 { //- - 2222 33 ab/xx - / - - 22 33 xxxx -
 						fmt.Println("有一套")
 					}else {
 						fmt.Println("没有一套")
 					}
-				}
-			}else if m[1000] == 1{
-			//	只要 有一个暗顺 即可
-				if GetOrderCounts(v,m){//1 22 33 77 _
-					fmt.Println("有一套")
-				}else {
-					fmt.Println("没哟一套")
-				}
-				
-			}else {
-				fmt.Println("没有一套")
-			}
-		}
-	}
-}
-
-//11张牌
-//  count 顺子的数量(胡后)
-func TaoByElevenCards(count,maxCard int,a []int,similarMap map[int]int)   {
-	m := make(map[int]int)
-	CountCards(a,m,maxCard)
-	fmt.Println("map =m =",m)
-	c := EndOriginalCountCards(m)
-	for _, v := range a{
-		if (m[v] >= 2 &&m[v+1] >=2) ||(m[v]>=2 && m[v+2] >=2){
-			if count == 3{
-				fmt.Println("有一套")
-			}else if m[1000] == 3 {
-				if count == 2|| c[3] ==2{
-					fmt.Println("有一套")
-				}else if GetOrderCounts(v,m){//有一个顺子即可 要对子参与
-					fmt.Println("有一套")
-				}else {
-					if count == 1 || c[3] == 1 || c[2] == 4{
-						fmt.Println("有一套")
-					}else{
-
-					}
-				}
-			}else if m[1000] == 2{
-				if GetOrderCounts(v,m){//参与暗顺
-					fmt.Println("有一套")
-					break
-				}else {//没有参与
-					if c[2] == 3{
-						if count == 1 || c[3] == 1{
+				}else if m[1000] == 2{
+					if c[2] == 3{//三对的情况 其中 两对 是暗顺的
+						if c[3] == 1|| c[1] ==3{
 							fmt.Println("有一套")
 						}else {
-
+							fmt.Println("meiyou ")
+						}
+					}else if c[2] == 1&& c[4] ==1 {
+						if m[b[0]] == 4|| m[b[0] + 1] == 4 || m[b[0]+2] == 4{//只有暗顺的对子 是4个的时候才能 有一套
+							fmt.Println("有一套")
+						}else {
+							fmt.Println("没有一套")
 						}
 					}else {
 						fmt.Println("没有一套")
 					}
+				}else{
+					fmt.Println("没有一套")
 				}
-			}else if m[1000]== 1{
-				if GetOrderCounts(v,m){
-					fmt.Println("有一套")
-				}
-			}else{
-				fmt.Println("没有一套")
 			}
+
 		}
+	}else {
+		fmt.Println("没有一套")
 	}
+
+	//for _, v := range a{
+	//	if (m[v] >= 2 &&m[v+1] >=2) ||(m[v]>=2 && m[v+2] >=2){
+	//		if count == 3{
+	//			fmt.Println("有一套")
+	//		}else if m[1000] == 3 {
+	//			if count == 2|| c[3] ==2{
+	//				fmt.Println("有一套")
+	//			}else if GetOrderCounts(v,m){//有一个顺子即可 要对子参与
+	//				fmt.Println("有一套")
+	//			}else {
+	//				if count == 1 || c[3] == 1 || c[2] == 4{
+	//					fmt.Println("有一套")
+	//				}else{
+	//
+	//				}
+	//			}
+	//		}else if m[1000] == 2{
+	//			if GetOrderCounts(v,m){//参与暗顺
+	//				fmt.Println("有一套")
+	//				break
+	//			}else {//没有参与
+	//				if c[2] == 3{
+	//					if count == 1 || c[3] == 1{
+	//						fmt.Println("有一套")
+	//					}else {
+	//
+	//					}
+	//				}else {
+	//					fmt.Println("没有一套")
+	//				}
+	//			}
+	//		}else if m[1000]== 1{
+	//			if GetOrderCounts(v,m){
+	//				fmt.Println("有一套")
+	//			}
+	//		}else{
+	//			fmt.Println("没有一套")
+	//		}
+	//	}
+	//}
 }
 
 //14张牌
 //
-func TaoByFourteenCards(count,maxCard int,a []int,similarMap map[int]int)  {
+func TaoByFourteenCards(maxCard int,a []int)  {
 	m := make(map[int]int)
 	CountCards(a,m,maxCard)
 	fmt.Println("map =m =",m)
 	c := EndOriginalCountCards(m)
-	for _, v := range m{
-		if (m[v] >= 2 &&m[v+1]>=2)||(m[v]>=2 && m[v+2] >=2){
-			if c[2] >= 2{//有套 基本条件
-				if c[2] >= 4{//有两套 基本条件
-
+	if c[2]+c[3] + c[4]>= 4{//4对以上的牌型
+		count, b := AboveDoubleArray(a,m)// count 暗顺 对子的个数
+		if count >= 2{//说明 有连续的对子 基本有序的 4对以上 一 二套的可能
+			if count == 3{
+				fmt.Println("有两套")
+			}else {
+				flag := 0//是否 连续对子 直接参与 形成套
+				if GetOrderCounts(b[0],m){//有一个参与
+					flag++
 				}
+				if GetOrderCounts(b[1],m){//有一个参与
+					flag++
+				}
+			//	分情况 一个参与的(至少一套) 两个参与的() 都没有直接参与的
+
+				if flag == 2{//两个 参与
+					if b[1] - b[0] == 2{//四对 是连续的
+						if m[b[0]-1] > 0 || m[b[1]+2] > 0{// 1_ 22 33 44 55 或 22 33 44 55 6_
+							fmt.Println("有两套")
+						}else{
+							fmt.Println("有一套")
+						}
+					}else {
+						fmt.Println("有2套")
+					}
+				}else if flag == 1{//一个参与
+					if m[1000] >= 3{//王牌3张
+						if c[1] == 1 && c[2] == 5{
+						//	22 33 44 55 77 x _ _ _ 这个 算 2个参与的
+							fmt.Println("有两套")
+						}else if c[2] == 4 && c[1]==3{
+							fmt.Println("有2套")
+						}else {
+							fmt.Println("哟一套")
+						}
+					}else if m[1000] == 2{//王牌 2张
+						if (c[2] == 6)||(c[1] == 2 && c[2] ==5){//11 22 33 77 88 xx _ _
+								fmt.Println("2套")
+						}else {// 1 22 33 4 77 88 xx _ _
+							fmt.Println("一套")
+						}
+					}else {
+						fmt.Println("一套")
+					}
+
+				}else if flag == 0{//	都没有参与 则 最多有一套
+					if m[1000] >=3{//三个王牌
+						fmt.Println("有一套")
+					}else if m[1000] == 2{//只有两个王牌都参与 才能有一套
+					//	所以剩下的牌 另外的
+						if c[2] == 6{//七对胡牌 且有双王
+							fmt.Println("有一套")
+						}else{
+							if c[3] == 2{//
+							//	22 333 77 888 _ _ xx  没有的套的情况
+							//	22 33 777 88 _ _ xxx 或 222 333 77 88 _ _ xx
+								if m[b[0]] == 3{
+									if m[b[1]]== 3|| m[b[1]+1] == 3|| m[b[1]+2] ==3{
+										fmt.Println("没有套")
+									}else {
+										fmt.Println("有一套")
+									}
+								}else if m[b[0]+1] == 3 || m[b[0]+2] == 3{
+									if m[b[1]]== 3|| m[b[1]+1] == 3|| m[b[1]+2] ==3{
+										fmt.Println("没有套")
+									}else {
+										fmt.Println("有一套")
+									}
+								}else{
+									fmt.Println("有一套")
+								}
+
+							}
+							fmt.Println("没有套")
+						}
+					}else{
+						fmt.Println("没有套")
+					}
+				}
+
+
 			}
+
+		}else if count == 1{//一套的可能 暗顺对子 只有
+			flag := 0
+			if GetOrderCounts(b[0],m){
+				flag++
+			}
+		//	没有直接参与
+			if flag == 0{
+				if m[1000] >= 3{//三张王牌
+					if c[2] == 4{// 22 33 77 dd xxx - - -
+						fmt.Println("一套")
+					}else if c[2] == 2 && c[3] ==2 && c[1] == 1 {// 22 33 xxx 777 d - - -
+						fmt.Println("一套")
+					}else if c[2]==1 &&c[3] == 3 {// - - - 22 333 777 xxx
+						fmt.Println("有一套")
+					}else if c[2] == 2 && c[3] == 1&& c[4] == 1 {// 22 3333 777 xx - - - / 22 33 7777 xxx - - -
+						fmt.Println("有一套")
+					}else{
+						fmt.Println("没有套")
+					}
+				}else if m[1000] == 2{
+					if c[2] == 1&& c[3] == 2&& c[4] == 1{//- - 22 3333 xxx xxx
+						fmt.Println("有一套")
+					}else if c[3] ==2 &&c[2] ==3 {// -- 22 33 xxx xxx dd
+						fmt.Println("有一套")
+					}else if c[3] == 2&& c[2]==3 {// - - 22 33 abc xxx dd
+						fmt.Println("有一套")
+					}else{
+						fmt.Println("没有套")
+					}
+				}else {
+					fmt.Println("没哟套")
+				}
+			}else if flag ==1{//直接参与
+				fmt.Println("有一套")
+			}else {
+				fmt.Println("没有一套")
+			}
+		}else  {//没有套
+			fmt.Println("没有套")
 		}
+	}else if c[2] + c[3] +c[4] >= 2 && c[2] +c[3] +c[4] <= 3{//2-3对才可能有一套
+		flag := 0
+		count, b := AboveDoubleArray(a,m)// count 暗顺 对子的个数
+		if GetOrderCounts(b[0],m){
+			flag = 1
+		}
+	//	没有直接参与
+		if flag == 0 && count == 1{
+			if m[1000] >= 3{//三张王牌
+				if c[2] == 2&& c[3] == 1&& c[1] == 4{//顺1 +( 三1 +单独的1)+ c[2](暗顺的对子)
+					fmt.Println("有一套")
+				}else if c[2] == 2&& c[3] == 0&& c[1] == 7{//顺2 即单的组成 + 一张单的 与王牌组成
+					fmt.Println("有一套")
+				}else if c[2] == 1&& c[3] == 1&& c[1]==6 {// - - - 222 33 abc  def
+					fmt.Println("有一套")
+				} else if c[2] == 1&& c[3] == 0&& c[4] == 1&& c[1] ==5{// - - 2222 33 abc de-
+					fmt.Println("有一套")
+				}else if c[2] == 1&& c[3] == 2&&c[1] ==3{//- - - 222 333 dd abc
+					fmt.Println("有一套")
+				}else {
+					fmt.Println("没哟一套")
+				}
+			}else if m[1000] == 2{
+				if c[2] == 3&& c[1] == 6{// -- 22 33 77 abc def
+					fmt.Println("有一套")
+				}else if c[2]==1&&c[4] == 1&& c[1] == 6{// -- 2222 33 abc def
+					fmt.Println("有一套")
+				}else {
+					fmt.Println("没有一套")
+				}
+			}else {
+				fmt.Println("没有一套")
+			}
+		}else if flag == 1{//直接参与
+			fmt.Println("有一套")
+		}else{//其他异常
+
+		}
+	}else {
+		fmt.Println("没有套")
 	}
 }
 
+//
+
 //判断 是否是连续的 对子 基本有顺
-//返回 是就基本有顺序的 对子（两个为一组 ）  的个数
+//返回 是就基本有顺序的 对子（两个为一组 ）  的个数  数组 为记录开始连续的值
+//如 22 33 44 则返回 a[0] = 22,count = 1 ;  22 33 66 77 a[0]=22,a[1]=66 count = 2
 func AboveDoubleArray(a []int,m map[int]int) (int,[]int) {
 	//falg := false
 	count := 0
