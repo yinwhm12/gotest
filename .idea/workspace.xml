@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9120be37-5d3a-428b-a9a6-42360db74016" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Go_SDK.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gotest.iml" afterPath="$PROJECT_DIR$/.idea/gotest.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/GOPATH__gotest_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/GOPATH__gotest_.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -34,7 +32,7 @@
           <file leaf-file-name="wangHuTest.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/wangHuTest.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="812">
+                <state relative-caret-position="1728">
                   <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
                   <folding>
                     <element signature="e#14#82#0" expanded="true" />
@@ -46,7 +44,7 @@
           <file leaf-file-name="test.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="729">
+                <state relative-caret-position="810">
                   <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
                   <folding>
                     <element signature="e#14#51#0" expanded="true" />
@@ -58,7 +56,7 @@
           <file leaf-file-name="jwtTest.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/jwt/jwtTest.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-27">
+                <state relative-caret-position="135">
                   <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="32" />
                   <folding />
                 </state>
@@ -68,7 +66,7 @@
           <file leaf-file-name="jwtTest2.go" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/jwt/jwtTest2.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2295">
+                <state relative-caret-position="812">
                   <caret line="100" column="38" lean-forward="false" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
                   <folding>
                     <element signature="e#13#69#0" expanded="true" />
@@ -81,7 +79,7 @@
             <entry file="file://$PROJECT_DIR$/jwtMain2.go">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="135">
-                  <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+                  <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
                   <folding>
                     <element signature="e#14#33#0" expanded="true" />
                   </folding>
@@ -118,7 +116,7 @@
           <file leaf-file-name="arrayTest.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/arrayTest.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="271">
+                <state relative-caret-position="324">
                   <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
                   <folding>
                     <element signature="e#14#39#0" expanded="true" />
@@ -130,7 +128,7 @@
           <file leaf-file-name="cardN.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/algorithm/cardN.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="379">
+                <state relative-caret-position="8316">
                   <caret line="325" column="23" lean-forward="false" selection-start-line="325" selection-start-column="23" selection-end-line="325" selection-end-column="23" />
                   <folding>
                     <element signature="e#19#44#0" expanded="true" />
@@ -140,14 +138,36 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="jwtMain.go" pinned="false" current-in-tab="true">
+          <file leaf-file-name="jwtMain.go" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/jwtMain.go">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
+                <state relative-caret-position="432">
                   <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
                   <folding>
                     <element signature="e#14#53#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="timeT.go" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/timeT.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="23" />
+                  <folding>
+                    <element signature="e#14#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="time.go" pinned="false" current-in-tab="false">
+            <entry file="file://D:/go_sdk/src/time/time.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="21465">
+                  <caret line="795" column="38" lean-forward="true" selection-start-line="795" selection-start-column="38" selection-end-line="795" selection-end-column="38" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -219,6 +239,7 @@
         <option value="$PROJECT_DIR$/jwtMain.go" />
         <option value="$PROJECT_DIR$/jwtMain2.go" />
         <option value="$PROJECT_DIR$/jwt/jwtTest2.go" />
+        <option value="$PROJECT_DIR$/timeT.go" />
       </list>
     </option>
   </component>
@@ -241,8 +262,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -261,7 +281,9 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -287,87 +309,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leafTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jwt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="card" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gotest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="algorithm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,17 +357,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Single File.go run jwtMain2.go">
+  <component name="RunManager" selected="Go Single File.go run timeT.go">
     <configuration default="false" name="go run wangHuTest.go" type="GoRunFileConfiguration" factoryName="Go Single File" temporary="true">
       <module name="gotest" />
       <working_directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/wangHuTest.go" />
-      <method />
-    </configuration>
-    <configuration default="false" name="go run arrayTest.go" type="GoRunFileConfiguration" factoryName="Go Single File" temporary="true">
-      <module name="gotest" />
-      <working_directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/arrayTest.go" />
       <method />
     </configuration>
     <configuration default="false" name="go run test.go" type="GoRunFileConfiguration" factoryName="Go Single File" temporary="true">
@@ -444,6 +380,12 @@
       <module name="gotest" />
       <working_directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/jwtMain2.go" />
+      <method />
+    </configuration>
+    <configuration default="false" name="go run timeT.go" type="GoRunFileConfiguration" factoryName="Go Single File" temporary="true">
+      <module name="gotest" />
+      <working_directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/timeT.go" />
       <method />
     </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
@@ -504,18 +446,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Go Single File.go run wangHuTest.go" />
-      <item index="1" class="java.lang.String" itemvalue="Go Single File.go run arrayTest.go" />
-      <item index="2" class="java.lang.String" itemvalue="Go Single File.go run test.go" />
-      <item index="3" class="java.lang.String" itemvalue="Go Single File.go run jwtMain.go" />
-      <item index="4" class="java.lang.String" itemvalue="Go Single File.go run jwtMain2.go" />
+      <item index="1" class="java.lang.String" itemvalue="Go Single File.go run test.go" />
+      <item index="2" class="java.lang.String" itemvalue="Go Single File.go run jwtMain.go" />
+      <item index="3" class="java.lang.String" itemvalue="Go Single File.go run jwtMain2.go" />
+      <item index="4" class="java.lang.String" itemvalue="Go Single File.go run timeT.go" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Single File.go run jwtMain2.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Single File.go run jwtMain.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Single File.go run test.go" />
-        <item index="3" class="java.lang.String" itemvalue="Go Single File.go run wangHuTest.go" />
-        <item index="4" class="java.lang.String" itemvalue="Go Single File.go run arrayTest.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Single File.go run timeT.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Single File.go run jwtMain2.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Single File.go run jwtMain.go" />
+        <item index="3" class="java.lang.String" itemvalue="Go Single File.go run test.go" />
+        <item index="4" class="java.lang.String" itemvalue="Go Single File.go run wangHuTest.go" />
       </list>
     </recent_temporary>
   </component>
@@ -532,13 +474,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12821889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3325893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3325893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -592,7 +535,8 @@
     <MESSAGE value="6.29 小道 大道 等" />
     <MESSAGE value="6.30 一套 2套 没有解决" />
     <MESSAGE value="7.2 4对或者2对是否 有序 弄好" />
-    <option name="LAST_COMMIT_MESSAGE" value="7.2 4对或者2对是否 有序 弄好" />
+    <MESSAGE value="7.8 add token test" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.8 add token test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -601,20 +545,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/socker/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leafTest/leafTCPTest.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sortStruct.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="999">
@@ -800,7 +730,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/arrayTest.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
+        <state relative-caret-position="324">
           <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
           <folding>
             <element signature="e#14#39#0" expanded="true" />
@@ -828,17 +758,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="e#14#51#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/algorithm/cardN.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
+        <state relative-caret-position="8316">
           <caret line="325" column="23" lean-forward="false" selection-start-line="325" selection-start-column="23" selection-end-line="325" selection-end-column="23" />
           <folding>
             <element signature="e#19#44#0" expanded="true" />
@@ -849,7 +777,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wangHuTest.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
+        <state relative-caret-position="1728">
           <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
           <folding>
             <element signature="e#14#82#0" expanded="true" />
@@ -859,7 +787,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jwtMain.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="432">
           <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
           <folding>
             <element signature="e#14#53#0" expanded="true" />
@@ -870,7 +798,7 @@
     <entry file="file://$PROJECT_DIR$/jwtMain2.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <element signature="e#14#33#0" expanded="true" />
           </folding>
@@ -879,7 +807,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jwt/jwtTest.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
+        <state relative-caret-position="135">
           <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="32" />
           <folding />
         </state>
@@ -887,10 +815,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jwt/jwtTest2.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
+        <state relative-caret-position="812">
           <caret line="100" column="38" lean-forward="false" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
           <folding>
             <element signature="e#13#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/go_sdk/src/time/time.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21465">
+          <caret line="795" column="38" lean-forward="true" selection-start-line="795" selection-start-column="38" selection-end-line="795" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/timeT.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="23" />
+          <folding>
+            <element signature="e#14#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
