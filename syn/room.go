@@ -20,13 +20,15 @@ func init()  {
 }
 
 func (r *Room)StartRoom()  {
-	for i:=0; i< 8 ; i++{
+	for i:=0; i< 2 ; i++{
 		for j := 0; j< 4; j++{
 				//Players[r.RoomPlayerMap[r.RoomTurn]].StartPlayer()
 			fmt.Println("444444--j=",j)
 			select {
 			case r.RoomTurn = <- r.PlayerSignal:
+				fmt.Println("turn -room ",r.RoomTurn)
 				fmt.Println("接收到一个玩家的信息 room")
+				fmt.Println("r.RoomPlayerMap[r.RoomTurn]=",r.RoomPlayerMap[r.RoomTurn])
 				fmt.Println("%v",Players[r.RoomPlayerMap[r.RoomTurn]])
 				Players[r.RoomPlayerMap[r.RoomTurn]].StartPlayer()
 				//Players[r.RoomPlayerMap[r.RoomTurn]].RoomSignal <- 1
