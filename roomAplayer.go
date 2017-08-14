@@ -27,7 +27,7 @@ func main()  {
 	syn.Players[player4.PlayerId] = &player4
 
 	c := make(chan int,1)
-	c <- 1
+	c <- 0
 	room1 := syn.Room{RoomId:1,PlayerSignal:c,}
 	room1.RoomPlayerMap = make(map[int]int)
 	room1.RoomPlayerMap[0] = player1.PlayerId

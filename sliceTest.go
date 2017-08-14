@@ -17,4 +17,17 @@ func main()  {
 	s1 = append(s1,s0[5])
 	fmt.Println("add",s1)
 
+	var s2 []int
+	s2 = make([]int,len(s0)*2)
+	//var s3 []int
+	//var s4 []int
+
+	s2 = s0
+	fmt.Println("s2==",s2,"len",len(s2),cap(s2))
+	s2 = s2[:len(s2)-1]
+	fmt.Println("s2==",s2,"len",len(s2),cap(s2))
+	s2 = append(s2,8)
+	fmt.Println("s2==",s2,"len",len(s2),cap(s2))
+
+
 }
