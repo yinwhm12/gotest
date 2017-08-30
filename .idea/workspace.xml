@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9120be37-5d3a-428b-a9a6-42360db74016" name="Default" comment="添加 unsafe">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/flag_using.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendMail.go" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sendMail2v.go" />
+    <list default="true" id="9120be37-5d3a-428b-a9a6-42360db74016" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -559,7 +556,8 @@
     <MESSAGE value="7.11添加时间 前天0点到后天0点" />
     <MESSAGE value="7.17 chan 测试 尝试" />
     <MESSAGE value="添加 unsafe" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加 unsafe" />
+    <MESSAGE value="添加 mail flag" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加 mail flag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
