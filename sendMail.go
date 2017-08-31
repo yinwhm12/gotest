@@ -23,22 +23,24 @@ func SendMail(user, password, host, to, subject, body, mailtype string) error {
 }
 
 func main() {
-	user := "yinwhm12@163.com"
-	password := "yinweihui12"
+	user := "xxxx@163.com"
+	password := "xxxxxxx"
 	host := "smtp.163.com:25"
-	to := "394875070@qq.com"
+	to := "xxxx@qq.com"
 
 	subject := "Test send email by golang"
 
-	body := `
-    <html>
-    <body>
-    <h3>
-    "这是GO语言写的测试邮件。"
-    </h3>
-    </body>
-    </html>
-    `
+	//body := `
+    //<html>
+    //<body>
+    //<h3>
+    //"这是GO语言写的测试邮件。"
+    //</h3>
+    //</body>
+    //</html>
+    //`
+
+	body := "hello my name is"
 	fmt.Println("send email")
 	err := SendMail(user, password, host, to, subject, body, "html")
 	if err != nil {
